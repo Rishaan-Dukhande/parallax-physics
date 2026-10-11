@@ -4,5 +4,5 @@ const heading1 = document.getElementById("title")
 
 startButton.addEventListener("click", () => {
     heading1.textContent = "how am I supposed to know this?"
-    () => renderCard;
+    //() => renderCard;
 });
