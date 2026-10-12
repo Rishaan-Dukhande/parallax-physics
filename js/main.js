@@ -16,10 +16,9 @@ function renderCard(card) {
 let cardNum = 0;
 startButton.addEventListener("click", () => {
     heading1.textContent = lessons[0].title;
-    while(cardNum < cards.length){
+    if(cardNum < lessons[0].cards.length){
         renderCard(lessons[0].cards[cardNum]);
         cardNum++;
     }
-    cardNum = 0;
 
 });

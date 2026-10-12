@@ -31,4 +31,5 @@
    AI used: I used Claude to check my code and explain some concepts, including syntax for js as I mainly use java and python.
    Next Steps: Finish the code to render the lessons cards on the screen to simulate a lesson.
    ## Oct 11, 2026 - Day 6
-   In progress
+   Built: Full lesson going through all cards
+   Learned: In main.js, you need to use the keywords "let" or "const" to declare a variable.
