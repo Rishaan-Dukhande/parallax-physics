@@ -28,9 +28,8 @@ function renderCard(card) {
 startButton.addEventListener("click", () => {
     heading1.textContent = lessons[0].title;
     renderCard(lessons[0].cards[cardNum]);
+    // Start button is disabled after clicked even once
     startButton.disabled = true;
-    nextCard.disabled = false;
-    previousCard.disabled = true;
 
 });
 
