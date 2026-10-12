@@ -16,3 +16,19 @@
    AI used: I did not use any AI during this session. This session was based on pure learning and knowledge retainment
    Next Steps: Finish the react tutorial, picking up from updating the screen with UseState. Then I will transition into doing the Tic-Tac-Toe tutorial to test my React fundamentals
 
+   ## Oct 5-6, 2026 - Days 3 & 4
+   Built: I created the tic-tac-toe project on react's tutorial page to better get a sense of how react works.
+   Learned: I learned how to render using reacts => notation, including () => functionName so that the function only runs once
+   AI used: I did not use AI during this session. This session was based on react's tutorial.
+   Next Steps: Start the Parallax project using vscode.
+
+   ## Oct 10, 2026 - Day 5
+   Built: I created the structure for the project, including main.js, lessons.js, index.html, and style.css. 
+   Tasks:
+      1. I first set the background color to a spacy background
+      2. I then added a start button to take the user from the home parallax screen to a lesson screen
+      3. I created code for the first lesson and 4 cards to store different parts of the lesson (not working yet)
+   AI used: I used Claude to check my code and explain some concepts, including syntax for js as I mainly use java and python.
+   Next Steps: Finish the code to render the lessons cards on the screen to simulate a lesson.
+   ## Oct 11, 2026 - Day 6
+   In progress

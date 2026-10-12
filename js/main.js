@@ -14,6 +14,6 @@ function renderCard(card) {
 
 startButton.addEventListener("click", () => {
     heading1.textContent = lessons[0].title;
-    startButton.textContent = renderCard(lessons.cards[0]);
+    renderCard(lessons[0].cards[0]);
 
 });
