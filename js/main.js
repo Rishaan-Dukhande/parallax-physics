@@ -4,6 +4,9 @@ const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 let cardNum = 0;
+startButton.disabled = false;
+nextCard.disabled = true;
+previousCard.disabled = true;
 
 function renderCard(card) {
     const app = document.getElementById("app");
@@ -14,24 +17,36 @@ function renderCard(card) {
     app.replaceChildren();
     app.appendChild(h2); //header2 comes before the paragraph/card description
     app.appendChild(p);
+
+    //Controls button disabling
+    if(cardNum == lessons[0].cards.length - 1) {
+        nextCard.disabled = true;
+        previousCard.disabled = false;
+    }else if(cardNum <= 0){
+        nextCard.disabled = false;
+        previousCard.disabled = true;
+    } else {
+        nextCard.disabled = false;
+        previousCard.disabled = false;
+        
+    }
 }
 
 
 startButton.addEventListener("click", () => {
     heading1.textContent = lessons[0].title;
     renderCard(lessons[0].cards[cardNum]);
-    startButton.ariaDisabled = true;
+    startButton.disabled = true;
+    nextCard.disabled = false;
+    previousCard.disabled = false;
+
 });
 
 nextCard.addEventListener("click", () => {
     if(cardNum < lessons[0].cards.length - 1){
         cardNum++;
     } 
-    if(cardNum == lessons[0].cards.length - 1) {
-        nextCard.ariaDisabled = true;
-    } else {
-        nextCard.ariaDisabled = false;
-    }
+    
     renderCard(lessons[0].cards[cardNum]);
 });
 
