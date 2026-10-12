@@ -39,3 +39,6 @@
 
 
    ## Oct 12, 2026 - Day 7
+   Learned: You can disable buttons using .disabled property
+   AI used: I used Claude to check my code
+      a. This was very helpful for testing edge cases such as the button being enabled when it should be disabled

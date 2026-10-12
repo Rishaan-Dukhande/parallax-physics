@@ -19,17 +19,9 @@ function renderCard(card) {
     app.appendChild(p);
 
     //Controls button disabling
-    if(cardNum == lessons[0].cards.length - 1) {
-        nextCard.disabled = true;
-        previousCard.disabled = false;
-    }else if(cardNum <= 0){
-        nextCard.disabled = false;
-        previousCard.disabled = true;
-    } else {
-        nextCard.disabled = false;
-        previousCard.disabled = false;
-        
-    }
+    nextCard.disabled = (cardNum === lessons[0].cards.length - 1);
+    previousCard.disabled = (cardNum <= 0);
+
 }
 
 
@@ -38,7 +30,7 @@ startButton.addEventListener("click", () => {
     renderCard(lessons[0].cards[cardNum]);
     startButton.disabled = true;
     nextCard.disabled = false;
-    previousCard.disabled = false;
+    previousCard.disabled = true;
 
 });
 
