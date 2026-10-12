@@ -33,3 +33,9 @@
    ## Oct 11, 2026 - Day 6
    Built: Full lesson going through all cards
    Learned: In main.js, you need to use the keywords "let" or "const" to declare a variable.
+   AI used: I used Claude to check my code and explain the following concepts:
+      1. syntax of a function
+      2. Function for clearing screen
+
+
+   ## Oct 12, 2026 - Day 7

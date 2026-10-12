@@ -1,6 +1,9 @@
 import {lessons} from "./lessons.js"
 const startButton = document.getElementById("startButton")
+const nextCard = document.getElementById("nextCard")
+const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
+let cardNum = 0;
 
 function renderCard(card) {
     const app = document.getElementById("app");
@@ -13,12 +16,28 @@ function renderCard(card) {
     app.appendChild(p);
 }
 
-let cardNum = 0;
+
 startButton.addEventListener("click", () => {
     heading1.textContent = lessons[0].title;
-    if(cardNum < lessons[0].cards.length){
-        renderCard(lessons[0].cards[cardNum]);
-        cardNum++;
-    }
+    renderCard(lessons[0].cards[cardNum]);
+    startButton.ariaDisabled = true;
+});
 
+nextCard.addEventListener("click", () => {
+    if(cardNum < lessons[0].cards.length - 1){
+        cardNum++;
+    } 
+    if(cardNum == lessons[0].cards.length - 1) {
+        nextCard.ariaDisabled = true;
+    } else {
+        nextCard.ariaDisabled = false;
+    }
+    renderCard(lessons[0].cards[cardNum]);
+});
+
+previousCard.addEventListener("click", () => {
+    if(cardNum > 0){
+        cardNum--;
+    }
+    renderCard(lessons[0].cards[cardNum]);
 });
