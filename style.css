@@ -1,10 +1,343 @@
-body{
-    color:azure;
-    background-color: #101b39;
-    font-size: 12px;
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   Styles.css was made with the help of google stitch. I am focusing on the structure of the app, not appearance.
+   ========================================================================== */
+:root {
+  /* Surfaces & Backgrounds */
+  --bg-deep-space: #0a0a0f;
+  --bg-surface: #131318;
+  --bg-surface-glass: rgba(19, 19, 24, 0.75);
+  --bg-surface-container: rgba(27, 27, 32, 0.65);
+  --bg-surface-elevated: #1b1b20;
+  /* Brand & Neon Accent Colors */
+  --color-cyan: #00f3ff;
+  --color-cyan-glow: rgba(0, 243, 255, 0.4);
+  --color-cyan-subtle: rgba(0, 243, 255, 0.08);
+  --color-purple: #c084fc;
+  --color-purple-dark: #9333ea;
+  --color-purple-glow: rgba(192, 132, 252, 0.35);
+  --color-orange: #ff9900;
+  --color-red: #ef4444;
+  --color-red-glow: rgba(239, 68, 68, 0.3);
+  --color-green: #10b981;
+  --color-green-glow: rgba(16, 185, 129, 0.4);
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-cyan-dim: rgba(0, 243, 255, 0.25);
+  --border-cyan-bright: #00f3ff;
+  /* Fonts */
+  --font-display: "Orbitron", monospace, sans-serif;
+  --font-body: "Space Grotesk", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+/* ==============
+    Main - coded myself
+   ============== */
+main{
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px; /* keeps everything in the screen and 20px from the border of the screen */
+
 }
 
-h2{
-    color:rgb(25, 199, 199);
-    font-size: 14px;
+/* ==========================================================================
+   Body & Global Defaults
+   ========================================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-deep-space);
+  background-image: radial-gradient(
+      circle at 80% 20%,
+      rgba(147, 51, 234, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(0, 243, 255, 0.05) 0%,
+      transparent 50%
+    );
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Brand Header
+   ========================================================================== */
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--color-cyan);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px var(--color-cyan-glow);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Cards (Glassmorphic Cyber Panels)
+   ========================================================================== */
+.card {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-cyan-dim);
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.card:hover {
+  border-color: rgba(0, 243, 255, 0.45);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    0 0 16px var(--color-cyan-glow);
+}
+.card-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+.card-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Buttons & Interactive Controls
+   ========================================================================== */
+.btn-primary {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000000;
+  background: linear-gradient(135deg, var(--color-cyan) 0%, #38bdf8 100%);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--color-cyan-glow);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(0, 243, 255, 0.65);
+}
+.btn-outline {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-purple);
+  background: transparent;
+  border: 1px solid var(--color-purple);
+  border-radius: 4px;
+  padding: 12px 24px;
+  cursor: pointer;
+  box-shadow: 0 0 12px var(--color-purple-glow);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.btn-outline:hover:not(:disabled) {
+  background: rgba(192, 132, 252, 0.1);
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.5);
+  transform: translateY(-1px);
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   Multiple-Choice Quiz Answers & Feedback
+   ========================================================================== */
+.choices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.choice {
+  background: var(--bg-surface-container);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--color-cyan);
+  border-radius: 4px;
+  padding: 16px 20px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.choice:hover {
+  background: var(--color-cyan-subtle);
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 16px var(--color-cyan-glow);
+}
+.choice--correct {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: var(--color-green) !important;
+  border-left: 3px solid var(--color-green) !important;
+  box-shadow: 0 0 20px var(--color-green-glow) !important;
+  color: #ffffff;
+}
+.choice--wrong {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border-color: var(--color-red) !important;
+  border-left: 3px solid var(--color-red) !important;
+  box-shadow: 0 0 20px var(--color-red-glow) !important;
+  color: #ffffff;
+}
+.feedback {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background: rgba(192, 132, 252, 0.08);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  color: var(--color-purple);
+}
+
+/* ==========================================================================
+   Stats & Progress Gauges
+   ========================================================================== */
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stat {
+  flex: 1;
+  background: var(--bg-surface-glass);
+  border: 1px solid var(--border-cyan-dim);
+  border-radius: 4px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+.progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-purple));
+  box-shadow: 0 0 10px var(--color-cyan-glow);
+  transition: width 0.4s ease;
+}
+
+/* ==========================================================================
+   Map & Skill Galaxy Nodes
+   ========================================================================== */
+.map {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  background-color: var(--bg-deep-space);
+  background-image: radial-gradient(
+      rgba(0, 243, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(147, 51, 234, 0.1) 0%,
+      transparent 60%
+    );
+  background-size:
+    24px 24px,
+    100% 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.node {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.node:hover {
+  transform: scale(1.1);
+}
+.node--done {
+  background: rgba(0, 243, 255, 0.1);
+  border: 2px solid var(--color-cyan);
+  color: var(--color-cyan);
+  box-shadow:
+    0 0 16px var(--color-cyan-glow),
+    inset 0 0 8px var(--color-cyan-glow);
+}
+.node--current {
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  border: 2px solid var(--color-cyan);
+  color: var(--bg-deep-space);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.9),
+    0 0 36px var(--color-cyan-glow);
+}
+.node--locked {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--text-dim);
+  color: var(--text-dim);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.node--locked:hover {
+  transform: none;
 }
