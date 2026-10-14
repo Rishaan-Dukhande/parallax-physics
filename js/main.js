@@ -19,7 +19,7 @@ function renderCard(card) {
     h2.classList.add("card-title"); // adds card-title class from css to the heading2 element
     const p = document.createElement("p");
     p.classList.add("card-text");
-    span.textContet = card.tag;
+    span.textContent = card.type;
     h2.textContent = card.title;
     p.textContent = card.text;
     app.replaceChildren();

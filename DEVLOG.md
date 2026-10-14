@@ -42,3 +42,12 @@
    Learned: You can disable buttons using .disabled property
    AI used: I used Claude to check my code
       a. This was very helpful for testing edge cases such as the button being enabled when it should be disabled
+
+   ## Oct 13, 2025 - Day 8
+   Learned: I learned how to incorporate CSS into HTML and javascript code!
+   Tasks: 
+      1. Today, I used google Stitch to make a stylesheet in css for me to use as a brandkit for my app. I want to focus my time on structure, so I decided to use AI to benefit the asthetics of my app.
+      2. I added the classes to all the elements in the app so far, including the buttons, body, title!
+      3. To add classes in HTML, just type it inside a tag <>. To add classes in javaScript, you have to use object.classList.add("class");
+
+
