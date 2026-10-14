@@ -10,11 +10,20 @@ previousCard.disabled = true;
 
 function renderCard(card) {
     const app = document.getElementById("app");
+
+    //Creating a span
+    const span = document.createElement("span");
+    span.classList.add("card-tag");
+
     const h2 = document.createElement("h2");
+    h2.classList.add("card-title"); // adds card-title class from css to the heading2 element
     const p = document.createElement("p");
+    p.classList.add("card-text");
+    span.textContet = card.tag;
     h2.textContent = card.title;
     p.textContent = card.text;
     app.replaceChildren();
+    app.appendChild(span);
     app.appendChild(h2); //header2 comes before the paragraph/card description
     app.appendChild(p);
 
