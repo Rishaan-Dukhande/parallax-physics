@@ -50,4 +50,14 @@
       2. I added the classes to all the elements in the app so far, including the buttons, body, title!
       3. To add classes in HTML, just type it inside a tag <>. To add classes in javaScript, you have to use object.classList.add("class");
 
+   ## Oct 14, 2026 - Day 9
+   Today, I created the offical first lesson of parallax. The first lesson follows the AP Physics 1 college ciriculum. This startes with the Kinematics Unit. The first topic covered in the unit is Scalars and Vectors.
+   Learned: 
+      1. Today I learned that we use the === operator to check if both the datatype and value of two variables being compared is the exact same.
+      2. I also learned that when creating elements in a .js file, you can name elements anything, such as questionText instead of "p". It is important to do this so that the compiler/program does not crash because only one const element can have the same name.
+      3. I learned that there is a hidden property that works on elements such as div. This is just like how disabled works on buttons!
+      4. I learned the syntax of a for each loop: element.forEach((element, index) => {});
+   AI usage: After writing my first draft of the lesson code and checking the mini-quiz inside the first lesson, I had multiple errors. I used AI to explain the errors, which are documented in the key learning above. Additionally, I used AI to verify the code and test the app itself with its capabilities.
+
+
 
