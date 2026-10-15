@@ -37,19 +37,19 @@ function renderCard(card) {
         questionText.textContent = card.question;
         const choicesDiv = document.createElement("div");
         choicesDiv.classList.add("choices");
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.hidden = true;
+        feedbackDiv.classList.add("feedback");
         card.choices.forEach((choice, i) => {
             const button = document.createElement("button");
             button.classList.add("choice");
             button.textContent = choice;
-            div.appendChild(button);
-        });
-        const feedbackDiv = document.createElement("div");
-        feedbackDiv.classList.add("feedback");
-        card.choices.forEach((choice, i) => {
-            if (i === card.answer) {
-                //
+            choicesDiv.appendChild(button);
+            if (choice === card.answer[i]){
+                feedbackDiv.hidden = false;
             }
-        })
+        });
+        app.appendChild(questionText);
         app.appendChild(choicesDiv);
         app.appendChild(feedbackDiv);
     }
