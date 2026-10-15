@@ -45,9 +45,6 @@ function renderCard(card) {
             button.classList.add("choice");
             button.textContent = choice;
             choicesDiv.appendChild(button);
-            if (choice === card.answer[i]){
-                feedbackDiv.hidden = false;
-            }
         });
         app.appendChild(questionText);
         app.appendChild(choicesDiv);
