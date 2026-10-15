@@ -31,7 +31,26 @@ function renderCard(card) {
     nextCard.disabled = (cardNum === lessons[0].cards.length - 1);
     previousCard.disabled = (cardNum <= 0);
 
+    if (card.type === "check"){
+        const p = document.createElement("p");
+        p.classList.add("card-text");
+        const div = document.createElement("div");
+        div.classList.add("choices");
+        for i in range(4) => {
+            const button = document.createElement("button");
+            button.classList.add("choice");
+            div.appendChild(button);
+        }
+        const div = document.createElement("div");
+        div.classList.add("feedback");
+        lessons[0].card3.choices.forEach((choice, i) => {
+            if (i = card.answer) {
+                //
+            }
+        })
+    }
 }
+
 
 
 startButton.addEventListener("click", () => {
