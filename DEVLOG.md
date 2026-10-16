@@ -59,10 +59,20 @@
       4. I learned the syntax of a for each loop: element.forEach((element, index) => {});
    AI usage: After writing my first draft of the lesson code and checking the mini-quiz inside the first lesson, I had multiple errors. I used AI to explain the errors, which are documented in the key learning above. Additionally, I used AI to verify the code and test the app itself with its capabilities.
 
+   Next steps: Finish the mini quiz and potentially add stars for the lesson score. This will unlock new lessons in the future and determine whether a lesson needs to be re-done.
+
    ## Oct 15, 2026 - Day 10
    Today, I finished the mini-quiz in the first lesson. I have included colors to indicate wrong and write answers (that comes from the css) and I created 4 buttons that are clickable and display the answer choices.
 
+   Additionally, I added stars to the lesson to act as the lesson score. This depends on their score on the lesson quiz.
+
+   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic. I always try to write code myself, but learn the concept I am struggling with after using AI.
+
    Key Learnings:
       1. When I gave the buttons the choice--correct or choice--wrong class, they now had a class and a property of disabled. The property for disabled buttons in css is button:disabled, which is more specific than just the .choice-correct class. This makes the css default to the rules in the button:disabled property, which dims the opacity. To fix this, I hand coded a third class that works with both properties to keep the buttons fully highlighted in a color to indicate wrong and right.
+      2. You can use the "".repeat(n) function to repeat any string in the quotation marks n times in a row.
+      3. Remember: It is easy to get confused with spelling. the property is .disabled (past tense). This should also be used in correct ways. It is important to think when something should or shouldn't be disabled (common mistake today).
+
+   Next Steps: Now that I have developed one whole lesson, I will use the same code to develop a total of 5 lessons to cover Unit 1: Kinematics of the AP Physics 1 ciriculum. Then, I will create a home screen. If I have time, I will make the first ever deploy to vercel and see the app in action!
 
 
