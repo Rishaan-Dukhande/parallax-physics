@@ -341,3 +341,8 @@ button:disabled {
 .node--locked:hover {
   transform: none;
 }
+
+/* This is written by me to keep the answer choices during mini-quizzes in lessons bright */
+.choice--correct:disabled, .choice--wrong:disabled {
+  opacity: 1;
+}

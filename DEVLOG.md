@@ -59,5 +59,10 @@
       4. I learned the syntax of a for each loop: element.forEach((element, index) => {});
    AI usage: After writing my first draft of the lesson code and checking the mini-quiz inside the first lesson, I had multiple errors. I used AI to explain the errors, which are documented in the key learning above. Additionally, I used AI to verify the code and test the app itself with its capabilities.
 
+   ## Oct 15, 2026 - Day 10
+   Today, I finished the mini-quiz in the first lesson. I have included colors to indicate wrong and write answers (that comes from the css) and I created 4 buttons that are clickable and display the answer choices.
+
+   Key Learnings:
+      1. When I gave the buttons the choice--correct or choice--wrong class, they now had a class and a property of disabled. The property for disabled buttons in css is button:disabled, which is more specific than just the .choice-correct class. This makes the css default to the rules in the button:disabled property, which dims the opacity. To fix this, I hand coded a third class that works with both properties to keep the buttons fully highlighted in a color to indicate wrong and right.
 
 

@@ -51,8 +51,8 @@ function renderCard(card) {
             button.addEventListener("click", () => {
                 if (i === card.answer) {
                     button.classList.add("choice--correct");
+                    feedbackDiv.hidden = false;
                     feedbackDiv.textContent = card.explanation;
-                    feedbackDiv.hidden = true;
                     nextCard.disabled = false;
                     choicesDiv.querySelectorAll("button").forEach((choiceButton) => {
                         choiceButton.disabled = true;
