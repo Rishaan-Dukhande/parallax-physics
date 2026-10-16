@@ -4,6 +4,7 @@ const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 let cardNum = 0;
+let mistakes = 0;
 startButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
@@ -32,7 +33,7 @@ function renderCard(card) {
     previousCard.disabled = (cardNum <= 0);
 
     if (card.type === "check"){
-        nextCard.disable = true;
+        nextCard.disabled = true;
         const questionText = document.createElement("p");
         questionText.classList.add("card-text");
         questionText.textContent = card.question;
@@ -51,22 +52,23 @@ function renderCard(card) {
                 if (i === card.answer) {
                     button.classList.add("choice--correct");
                     feedbackDiv.textContent = card.explanation;
-                    nextCard.hidden = false;
-                    choicesDiv.querySelectorAll("button").forEach((button, i){
-                        button.disable = true;
+                    feedbackDiv.hidden = true;
+                    nextCard.disabled = false;
+                    choicesDiv.querySelectorAll("button").forEach((choiceButton) => {
+                        choiceButton.disabled = true;
                     });
 
                 } else { 
                     button.classList.add("choice--wrong");
                     feedbackDiv.textContent = "Not quite, try again";
                     feedbackDiv.hidden = false;
-                    button.disable = true;
+                    button.disabled = true;
                     mistakes++; //still need to add mistakes
                 }
 
             });
             choicesDiv.appendChild(button);
-        }
+        });
         app.appendChild(questionText);
         app.appendChild(choicesDiv);
         app.appendChild(feedbackDiv);
