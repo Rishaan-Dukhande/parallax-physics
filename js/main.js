@@ -9,6 +9,20 @@ startButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
 
+//This calculates the stars a user is awarded based on the number of mistakes made on a lesson quiz
+function calculateStars(){
+    if (mistakes === 0){
+        return 3;
+    } else if (mistakes === 1){
+        return 2;
+    } else {
+        return 1;
+    }
+}
+
+
+
+// This function renders the cards for each lesson on the screen in the app element
 function renderCard(card) {
     const app = document.getElementById("app");
 
@@ -73,6 +87,18 @@ function renderCard(card) {
         app.appendChild(choicesDiv);
         app.appendChild(feedbackDiv);
     }
+
+    //displays stars in summary
+    if (card.type === "summary") {
+        const cardSummary = document.createElement("p");
+        cardSummary.classList.add("card-text");
+        cardSummary.textContent = "⭐".repeat(calculateStars()); // "".repeat(n) function repeats the inputted string n times
+        app.appendChild(cardSummary);
+    }
+
+
+
+
 }
 
 
@@ -82,7 +108,7 @@ startButton.addEventListener("click", () => {
     renderCard(lessons[0].cards[cardNum]);
     // Start button is disabled after clicked even once
     startButton.disabled = true;
-
+    mistakes = 0;
 });
 
 nextCard.addEventListener("click", () => {

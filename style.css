@@ -342,7 +342,7 @@ button:disabled {
   transform: none;
 }
 
-/* This is written by me to keep the answer choices during mini-quizzes in lessons bright */
+/* This is written by me after learning the concept of class values and defaults from AI. This keeps the answer choices during mini-quizzes in lessons bright */
 .choice--correct:disabled, .choice--wrong:disabled {
   opacity: 1;
 }
