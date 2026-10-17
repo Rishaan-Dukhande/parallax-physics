@@ -5,6 +5,7 @@ const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 let cardNum = 0;
 let mistakes = 0;
+let checkAnswered = false;
 startButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
@@ -20,6 +21,18 @@ function calculateStars(){
     }
 }
 
+//
+function showAnswered(card, choicesDiv, feedbackDiv){
+    choicesDiv.quierySelectorAll("button")[card.answer].classList.add("choice--correct");
+    choicesDiv.quierySelectorAll("button").forEach((button) => {
+        button.disabled = true;
+    });
+    feedbackDiv.hidden = false;
+    feedbackDiv.textContent = card-explanation;
+    nextCard.disabled = false;
+    checkAnswered = true;
+
+}
 
 
 // This function renders the cards for each lesson on the screen in the app element
@@ -64,13 +77,7 @@ function renderCard(card) {
             //adds an eventlistener to each choice button so it is clickable/interactive
             button.addEventListener("click", () => {
                 if (i === card.answer) {
-                    button.classList.add("choice--correct");
-                    feedbackDiv.hidden = false;
-                    feedbackDiv.textContent = card.explanation;
-                    nextCard.disabled = false;
-                    choicesDiv.querySelectorAll("button").forEach((choiceButton) => {
-                        choiceButton.disabled = true;
-                    });
+                    showAnswered(card, choicesDiv, feedbackDiv);
 
                 } else { 
                     button.classList.add("choice--wrong");
@@ -86,6 +93,8 @@ function renderCard(card) {
         app.appendChild(questionText);
         app.appendChild(choicesDiv);
         app.appendChild(feedbackDiv);
+
+        if (checkAnswered === true) showAnswered(card, choicesDiv, feedbackDiv);
     }
 
     //displays stars in summary
@@ -109,6 +118,7 @@ startButton.addEventListener("click", () => {
     // Start button is disabled after clicked even once
     startButton.disabled = true;
     mistakes = 0;
+    checkAnswered = false;
 });
 
 nextCard.addEventListener("click", () => {

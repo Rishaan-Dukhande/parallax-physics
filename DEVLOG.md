@@ -75,4 +75,13 @@
 
    Next Steps: Now that I have developed one whole lesson, I will use the same code to develop a total of 5 lessons to cover Unit 1: Kinematics of the AP Physics 1 ciriculum. Then, I will create a home screen. If I have time, I will make the first ever deploy to vercel and see the app in action!
 
+   ## Oct 16, 2026 - Day 11,
+
+Today I created a helper method called showAnswered. This helper method show the feedback and enables the next button after the user presses the right answer. It is a nice function because I can use it in multiple areas of the code without rewriting every single line.
+
+AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic.
+
+Limitations/Future Challenges: The current code only works if all the lessons only have one quiz-card. This occurs becuase the variable checkAnswered only stores true or false, which only stores information for one card.I will have to create a boolean list later on to manage lessons with more than 1 card.
+
+Next Steps: I did not have much time today, so I will do the 1st vercel deploy tommorow.
 
