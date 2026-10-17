@@ -21,14 +21,14 @@ function calculateStars(){
     }
 }
 
-//
+//This shows the feedback and enables the next Card when the user clicks the correct answer
 function showAnswered(card, choicesDiv, feedbackDiv){
-    choicesDiv.quierySelectorAll("button")[card.answer].classList.add("choice--correct");
-    choicesDiv.quierySelectorAll("button").forEach((button) => {
+    choicesDiv.querySelectorAll("button")[card.answer].classList.add("choice--correct");
+    choicesDiv.querySelectorAll("button").forEach((button) => {
         button.disabled = true;
     });
     feedbackDiv.hidden = false;
-    feedbackDiv.textContent = card-explanation;
+    feedbackDiv.textContent = card.explanation;
     nextCard.disabled = false;
     checkAnswered = true;
 
@@ -84,7 +84,7 @@ function renderCard(card) {
                     feedbackDiv.textContent = "Not quite, try again";
                     feedbackDiv.hidden = false;
                     button.disabled = true;
-                    mistakes++; //still need to add mistakes
+                    mistakes++; 
                 }
 
             });
