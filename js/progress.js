@@ -14,5 +14,6 @@ export function loadProgress(){
 
 export function saveStars(lessonID, stars){
     progress = loadProgress();
-    localStorage.setItem("parallax-progress", Math.max(progress[stars], stars));
+    progress[lessonID] = Math.max(progress[lessonID], stars)
+    localStorage.setItem("parallax-progress", JSON.stringify(progress));
 }

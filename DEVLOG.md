@@ -89,3 +89,4 @@
 
   ## Oct 17, 2026 - Day 12,
    1. You need to use the "export" keyword so that a function in one page can be used by other files
+   2. In javaScript, you don't have to manually create tables/lists like how you use the "new" keyword in java. If you say scores["math"] = 60 and math does not exist, then it will create a new row called "math" in the table and assign the value of 60 to the key.
