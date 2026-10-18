@@ -88,5 +88,15 @@
 
 
   ## Oct 17, 2026 - Day 12,
-   1. You need to use the "export" keyword so that a function in one page can be used by other files
-   2. In javaScript, you don't have to manually create tables/lists like how you use the "new" keyword in java. If you say scores["math"] = 60 and math does not exist, then it will create a new row called "math" in the table and assign the value of 60 to the key.
+
+  Today I created progress.js; This file has a function to loadProgress() and saveStars(). 
+
+   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic. In this specific session, I had a lot of obstacles, especially with learning new javascript functions and syntax. There were 6 attempts just to solve the progress.js page, and AI helped me understand javascript better, as shown in the key learnings below.
+
+  Key Learnings:
+      1. You need to use the "export" keyword so that a function in one page can be used by other files
+      2. In javaScript, you don't have to manually create tables/lists like how you use the "new" keyword in java. If you say scores["math"] = 60 and math does not exist, then it will create a new row called "math" in the table and assign the value of 60 to the key.
+      3. Through 6 attempts, I learned a lot of Java Script syntax features:
+         a. A dot is used to get an attribute in javascript, something that belongs to an object. However, tables in javascript use brackets just like lists: table[]; 
+         b. You can save a whole table using .setItem(key, value). Remember that the value has to be a string. We can use .stringify(obj) for this.
+         c. Javascript has two error words: null and undefined. Null happens from an intentionally missing object. For example, when an object has been declared but is empty. Undefined, by contrast, is used when the object has never been created and their is no instance of it.

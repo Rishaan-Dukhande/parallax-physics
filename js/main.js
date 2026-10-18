@@ -1,14 +1,24 @@
 import {lessons} from "./lessons.js"
+import {saveStars} from "./progress.js"
+import {loadProgress} from "./progress.js"
 const startButton = document.getElementById("startButton")
 const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
+const status = document.createElement("p");
+status.classList.add("card-text");
 let cardNum = 0;
 let mistakes = 0;
 let checkAnswered = false;
 startButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
+let recentProgress = loadProgress();
+if (recentProgress === undefined){
+    status.textContent("Status: Not started yet");
+} else {
+    status.textContent("Status: " + "⭐".repeat(recentProgress[lessonID]));
+}
 
 //This calculates the stars a user is awarded based on the number of mistakes made on a lesson quiz
 function calculateStars(){
@@ -99,10 +109,12 @@ function renderCard(card) {
 
     //displays stars in summary
     if (card.type === "summary") {
+        let stars = calculateStars();
         const cardSummary = document.createElement("p");
         cardSummary.classList.add("card-text");
-        cardSummary.textContent = "⭐".repeat(calculateStars()); // "".repeat(n) function repeats the inputted string n times
+        cardSummary.textContent = "⭐".repeat(stars); // "".repeat(n) function repeats the inputted string n times
         app.appendChild(cardSummary);
+        saveStars(101, stars) //lesson ID is set to 101 right now because we don't have a lessonID yet
     }
 
 
