@@ -6,12 +6,14 @@ function loadProgress(){
     if (localStorage.getItem("parallax-progress") === null){
         return {};
     } else {
-        return JSON.parse("parallax-progress");
+        return JSON.parse(localStorage.getItem("parallax-progress"));
     }
 }
 
 function saveStars(lessonID, stars){
-    loadProgress();
-    lessonID = Math.max(lessonID, stars);
+    progress = loadProgress();
+    lessonID = Math.max(progress, stars);
     JSON.stringify(lessonID);
+    localStorage.setItem(localStorage.getItem(progress), lessonID);
+    JSON.parse(lessonID);
 }
