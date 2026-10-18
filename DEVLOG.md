@@ -100,3 +100,4 @@
          a. A dot is used to get an attribute in javascript, something that belongs to an object. However, tables in javascript use brackets just like lists: table[]; 
          b. You can save a whole table using .setItem(key, value). Remember that the value has to be a string. We can use .stringify(obj) for this.
          c. Javascript has two error words: null and undefined. Null happens from an intentionally missing object. For example, when an object has been declared but is empty. Undefined, by contrast, is used when the object has never been created and their is no instance of it.
+      4. If you need to import multiple things from the same page/file, you can use a comma in the import instead of using multiple lines.
