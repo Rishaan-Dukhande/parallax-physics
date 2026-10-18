@@ -5,6 +5,7 @@ const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const status = document.createElement("p");
+const app = document.getElementById("app");
 status.classList.add("card-text");
 app.appendChild(status);
 let cardNum = 0;
@@ -47,7 +48,6 @@ function showAnswered(card, choicesDiv, feedbackDiv){
 
 // This function renders the cards for each lesson on the screen in the app element
 function renderCard(card) {
-    const app = document.getElementById("app");
 
     //Creating a span
     const span = document.createElement("span");

@@ -85,13 +85,11 @@
 
    Next Steps: I did not have much time today, so I will do the 1st vercel deploy tommorow.
 
-
-
   ## Oct 17, 2026 - Day 12,
 
-  Today I created progress.js; This file has a function to loadProgress() and saveStars(). 
+  Today, I first deployed the app on vercel! Then, I created progress.js; This file has a function to loadProgress() and saveStars(). Finally, I added function calls to main.js to use the functions in the functionality of the app.
 
-   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic. In this specific session, I had a lot of obstacles, especially with learning new javascript functions and syntax. There were 6 attempts just to solve the progress.js page, and AI helped me understand javascript better, as shown in the key learnings below.
+   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. In this specific session, I had a lot of obstacles, especially with learning new javascript functions and syntax. There were 6 attempts just to solve the progress.js page, and AI helped me understand javascript better, as shown in the key learnings below.
 
   Key Learnings:
       1. You need to use the "export" keyword so that a function in one page can be used by other files
@@ -100,4 +98,11 @@
          a. A dot is used to get an attribute in javascript, something that belongs to an object. However, tables in javascript use brackets just like lists: table[]; 
          b. You can save a whole table using .setItem(key, value). Remember that the value has to be a string. We can use .stringify(obj) for this.
          c. Javascript has two error words: null and undefined. Null happens from an intentionally missing object. For example, when an object has been declared but is empty. Undefined, by contrast, is used when the object has never been created and their is no instance of it.
+         d. Extra JavaScript functions are as follows:
+            i. stringify --> turn an object into a string
+            ii. parse --> turn a string back into an object
+            iii. setItem --> changes the item in a table
+            iv. getItem --> gets the item currently in a table
       4. If you need to import multiple things from the same page/file, you can use a comma in the import instead of using multiple lines.
+
+   Next Steps: I am going to create an interactive projectile simulator! 
