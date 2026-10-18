@@ -1,7 +1,5 @@
 //This is where all lesson progress and user statistics will be stored
 
-let progress = JSON.parse(localStorage.getItem("parallax-progress"));
-
 
 //returns saved progress
 export function loadProgress(){
@@ -13,9 +11,9 @@ export function loadProgress(){
 }
 
 export function saveStars(lessonID, stars){
-    progress = loadProgress();
-    if (progress[lesson] === null){
-        progress[lesson] = stars;
+    let progress = loadProgress();
+    if (progress[lessonID] === undefined){
+        progress[lessonID] = stars;
     } else {
         progress[lessonID] = Math.max(progress[lessonID], stars);
     }
