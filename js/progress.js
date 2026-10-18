@@ -12,6 +12,6 @@ function loadProgress(){
 
 function saveStars(lessonID, stars){
     loadProgress();
-    lessonID.stars = Math.max(lessonID.stars, stars);
-    JSON.stringify(lessonID.stars);
+    lessonID = Math.max(lessonID, stars);
+    JSON.stringify(lessonID);
 }
