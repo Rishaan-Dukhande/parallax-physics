@@ -77,11 +77,15 @@
 
    ## Oct 16, 2026 - Day 11,
 
-Today I created a helper method called showAnswered. This helper method show the feedback and enables the next button after the user presses the right answer. It is a nice function because I can use it in multiple areas of the code without rewriting every single line.
+   Today I created a helper method called showAnswered. This helper method show the feedback and enables the next button after the user presses the right answer. It is a nice function because I can use it in multiple areas of the code without rewriting every single line.
 
-AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic.
+   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic.
 
-Limitations/Future Challenges: The current code only works if all the lessons only have one quiz-card. This occurs becuase the variable checkAnswered only stores true or false, which only stores information for one card.I will have to create a boolean list later on to manage lessons with more than 1 card.
+   Limitations/Future Challenges: The current code only works if all the lessons only have one quiz-card. This occurs becuase the variable checkAnswered only stores true or false, which only stores information for one card.I will have to create a boolean list later on to manage lessons with more than 1 card.
 
-Next Steps: I did not have much time today, so I will do the 1st vercel deploy tommorow.
+   Next Steps: I did not have much time today, so I will do the 1st vercel deploy tommorow.
 
+
+
+  ## Oct 17, 2026 - Day 12,
+   1. You need to use the "export" keyword so that a function in one page can be used by other files
