@@ -108,6 +108,7 @@ body {
     0 0 16px var(--color-cyan-glow);
 }
 
+/* This method was created by me */
 #myCanvas {
   display: block;
 }
