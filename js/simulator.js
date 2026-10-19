@@ -44,7 +44,14 @@ launchButton.addEventListener("click", () => {
 
 )
 
+//tester code
+speed = 20;
+angle = 60;
 console.log(mapCanvas(2));
-pen.beginPath();
-pen.arc(mapCanvas(1)[0], mapCanvas(1)[1], 3, 0, 2*Math.PI, true);
-pen.fill();
+for (let i = 0; i < 4; i+=0.2){
+    let coord = mapCanvas(i);
+    pen.beginPath();
+    pen.arc(coord[0], coord[1], 3, 0, 2*Math.PI, true);
+    pen.fill();
+}
+
