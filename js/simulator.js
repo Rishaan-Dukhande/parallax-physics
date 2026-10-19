@@ -12,21 +12,19 @@ const ground = 300; //ground is at y = 450px
 //variables that change or are set by the user
 let t = 0; //time
 let speed = 0;
-let angle = 0;
+let angle = 0; //in degrees
 
 pen.beginPath() //used for creating a new, unconnected path
 pen.fillRect(0, ground, canvas.width, 2);
 pen.arc(8, ground - 8, 8, 0, 2*Math.PI, true);
 pen.fill();
 
-function calculateNewPosition(previousX, previousY){
-    t++;
-    let x = previousX + 10;
-    vy = speed * Math.sin(angle) - gt;
-    let y = previousY + vy; 
+function calculateNewPosition(t){
+    let radians = angle / 180 * Math.PI;
+    let x = speed * Math.cos(radians);
+    let y = speed * Math.sin(radians) * t - g * t * t;
     return [x,y];
 }
-
 
 
 launchButton.addEventListener("click", () => {
@@ -37,3 +35,6 @@ launchButton.addEventListener("click", () => {
 
 )
 
+speed = 20;
+angle = 45;
+console.log(calculateNewPosition(9.2))
