@@ -26,6 +26,11 @@ function calculateNewPosition(t){
     return [x,y];
 }
 
+function mapCanvas(){
+    physicsCoord = calculateNewPosition(t);
+    let canvasX = physicsCoord[0] * scale + 8;
+}
+
 
 launchButton.addEventListener("click", () => {
     
