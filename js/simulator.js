@@ -8,8 +8,8 @@ const g = 9.8; //gravity
 const scale = 10; //10px per meter
 const ground = 300; //ground is at y = 450px
 const launchX = 8;
+const radius = 8;
 const launchY = ground - radius;
-let radius = 8;
 
 //variables that change or are set by the user
 let t = 0; //time
@@ -31,7 +31,8 @@ function calculateNewPosition(t){
 function mapCanvas(){
     let physicsCoord = calculateNewPosition(t);
     let canvasX = physicsCoord[0] * scale + launchX;
-    let canvasY = launchY - physicsCoord[0] * scale;
+    let canvasY = launchY - physicsCoord[1] * scale;
+    return [canvasX, canvasY];
 }
 
 
@@ -45,5 +46,9 @@ launchButton.addEventListener("click", () => {
 
 speed = 20;
 angle = 45;
+t=1;
 console.log(calculateNewPosition(1));
 console.log(calculateNewPosition(2));
+console.log(mapCanvas());
+t=2;
+console.log(mapCanvas());
