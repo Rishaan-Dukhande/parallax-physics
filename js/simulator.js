@@ -21,8 +21,8 @@ pen.fill();
 
 function calculateNewPosition(t){
     let radians = angle / 180 * Math.PI;
-    let x = speed * Math.cos(radians);
-    let y = speed * Math.sin(radians) * t - g * t * t;
+    let x = speed * Math.cos(radians) * t;
+    let y = speed * Math.sin(radians) * t - g * t * t / 2;
     return [x,y];
 }
 
@@ -37,4 +37,5 @@ launchButton.addEventListener("click", () => {
 
 speed = 20;
 angle = 45;
-console.log(calculateNewPosition(9.2))
+console.log(calculateNewPosition(1));
+console.log(calculateNewPosition(2));
