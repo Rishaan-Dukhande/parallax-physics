@@ -28,8 +28,8 @@ function calculateNewPosition(t){
     return [x,y];
 }
 
-function mapCanvas(){
-    let physicsCoord = calculateNewPosition(t);
+function mapCanvas(time){
+    let physicsCoord = calculateNewPosition(time);
     let canvasX = physicsCoord[0] * scale + launchX;
     let canvasY = launchY - physicsCoord[1] * scale;
     return [canvasX, canvasY];
@@ -44,11 +44,7 @@ launchButton.addEventListener("click", () => {
 
 )
 
-speed = 20;
-angle = 45;
-t=1;
-console.log(calculateNewPosition(1));
-console.log(calculateNewPosition(2));
-console.log(mapCanvas());
-t=2;
-console.log(mapCanvas());
+console.log(mapCanvas(2));
+pen.beginPath();
+pen.arc(mapCanvas(1)[0], mapCanvas(1)[1], 3, 0, 2*Math.PI, true);
+pen.fill();
