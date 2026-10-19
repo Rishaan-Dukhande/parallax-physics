@@ -106,3 +106,26 @@
       4. If you need to import multiple things from the same page/file, you can use a comma in the import instead of using multiple lines.
 
    Next Steps: I am going to create an interactive projectile simulator! 
+
+   ## Oct 18, 2026 - Day 13,
+
+   Today, I build a projectile motion simulator for a user to intuitively understand how a projectile works by moving it. To do this, I created two functions: calculateNewPosition(t) calculates the new x,y position the projectile should be at using the kinematic equations. mapCanvas(time) calls the calculate function to take the x,y coordinates and change them so that it works for the canvas's different grid. 
+
+   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. In this specific session, I had to learn how to draw on a screen using javaScript. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it.
+
+   Key Learnings:
+      1.2 One important concept is that the canvas starts (0,0) from the top left corner of the grid, so subtracting y actually makes an object/line move upward.
+
+      2. I learned to use the function beginPath() to create a new drawing object. Without using beginPath(), an drawing connects a the previous drawing to the new drawing with a line. Additionally, the fill() function needs to be used to actually draw a point.
+
+      3. I learned that css uses different punctuation for different rules:
+      selector (plain word) - looks for elements whose tag is "selector"
+      .selector - looks for elements whose classes list contain the word "selector"
+      #selector - looks for the element whose ID is "selector"
+      :selector - does the css action only while it is in the state "selector"
+
+      4. You can test with console.log. To open it on a website/app screen, you can use CMD + OPT + J.
+
+      Next Steps: I am going to finally make the animation by callin gthe mapCanvas function multiple times. The time will be 60 frames per second.
+
+
