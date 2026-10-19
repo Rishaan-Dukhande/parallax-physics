@@ -7,7 +7,9 @@ const launchButton = document.createElement("button");
 const g = 9.8; //gravity
 const scale = 10; //10px per meter
 const ground = 300; //ground is at y = 450px
-
+const launchX = 8;
+const launchY = ground - radius;
+let radius = 8;
 
 //variables that change or are set by the user
 let t = 0; //time
@@ -16,7 +18,7 @@ let angle = 0; //in degrees
 
 pen.beginPath() //used for creating a new, unconnected path
 pen.fillRect(0, ground, canvas.width, 2);
-pen.arc(8, ground - 8, 8, 0, 2*Math.PI, true);
+pen.arc(launchX, launchY, radius, 0, 2*Math.PI, true);
 pen.fill();
 
 function calculateNewPosition(t){
@@ -27,8 +29,9 @@ function calculateNewPosition(t){
 }
 
 function mapCanvas(){
-    physicsCoord = calculateNewPosition(t);
-    let canvasX = physicsCoord[0] * scale + 8;
+    let physicsCoord = calculateNewPosition(t);
+    let canvasX = physicsCoord[0] * scale + launchX;
+    let canvasY = launchY - physicsCoord[0] * scale;
 }
 
 
