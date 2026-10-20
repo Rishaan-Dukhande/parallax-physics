@@ -15,6 +15,7 @@ const launchY = ground - radius;
 let t = 0; //time
 let speed = 0;
 let angle = 0; //in degrees
+let falling = false;
 
 //inital pen place
 pen.beginPath() //used for creating a new, unconnected path
@@ -43,8 +44,10 @@ function drawFrame(){
     //draw new screen
     if (coord[1] > launchY) {
         coord[1] = launchY;
+        falling = false;
     } else {
         t += 1/60; //adds 1/60 because frame rate is 60fps
+        falling = true;
     }
     pen.beginPath();
     pen.fillRect(0, ground, canvas.width, 2); //paints ground
@@ -53,11 +56,12 @@ function drawFrame(){
     //call function again
     requestAnimationFrame(drawFrame); //This takes the drawFunction and runs it again
     //for above, a for loop should not be used because the motion will just be a teleportation back to front
+    
 
 }
 launchButton.addEventListener("click", () => {
     t = 0;
-    drawFrame();
+    if (!falling) drawFrame();
 });
 
 //tester code
