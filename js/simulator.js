@@ -1,7 +1,7 @@
 const canvas = document.getElementById("myCanvas");
 const pen = canvas.getContext("2d");
 pen.fillStyle = "white";
-const launchButton = document.createElement("button");
+const launchButton = document.getElementById("launchButton");
 
 //variables that are constant in projectile motion
 const g = 9.8; //gravity
@@ -43,6 +43,7 @@ function drawFrame(){
     let coord = mapCanvas(t);
     //draw new screen
     pen.beginPath();
+    pen.fillRect(0, ground, canvas.width, 2); //paints ground
     pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
     //call function again
     requestAnimationFrame(drawFrame()); //This takes the drawFunction and runs it again
@@ -50,12 +51,8 @@ function drawFrame(){
 
 }
 launchButton.addEventListener("click", () => {
-    
-
-
-}
-
-)
+    drawFrame();
+});
 
 //tester code
 speed = 20;
