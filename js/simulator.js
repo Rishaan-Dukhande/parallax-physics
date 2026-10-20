@@ -16,6 +16,7 @@ let t = 0; //time
 let speed = 0;
 let angle = 0; //in degrees
 
+//inital pen place
 pen.beginPath() //used for creating a new, unconnected path
 pen.fillRect(0, ground, canvas.width, 2);
 pen.arc(launchX, launchY, radius, 0, 2*Math.PI, true);
@@ -35,7 +36,19 @@ function mapCanvas(time){
     return [canvasX, canvasY];
 }
 
+function drawFrame(){
+    //erase current screen
+    pen.clearRect(0, 0, canvas.width, canvas.height);
+    t += 1/60; //adds 1/60 because frame rate is 60fps
+    let coord = mapCanvas(t);
+    //draw new screen
+    pen.beginPath();
+    pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
+    //call function again
+    requestAnimationFrame(drawFrame()); //This takes the drawFunction and runs it again
+    //for above, a for loop should not be used because the motion will just be a teleportation back to front
 
+}
 launchButton.addEventListener("click", () => {
     
 
@@ -47,6 +60,7 @@ launchButton.addEventListener("click", () => {
 //tester code
 speed = 20;
 angle = 60;
+drawFrame();
 console.log(mapCanvas(2));
 for (let i = 0; i < 4; i+=0.2){
     let coord = mapCanvas(i);
