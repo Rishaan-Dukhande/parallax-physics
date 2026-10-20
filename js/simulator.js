@@ -39,11 +39,12 @@ function mapCanvas(time){
 function drawFrame(){
     //erase current screen
     pen.clearRect(0, 0, canvas.width, canvas.height);
-    t += 1/60; //adds 1/60 because frame rate is 60fps
     let coord = mapCanvas(t);
     //draw new screen
     if (coord[1] > launchY) {
         coord[1] = launchY;
+    } else {
+        t += 1/60; //adds 1/60 because frame rate is 60fps
     }
     pen.beginPath();
     pen.fillRect(0, ground, canvas.width, 2); //paints ground
