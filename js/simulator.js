@@ -42,15 +42,20 @@ function drawFrame(){
     t += 1/60; //adds 1/60 because frame rate is 60fps
     let coord = mapCanvas(t);
     //draw new screen
+    if (coord[1] > launchY) {
+        coord[1] = launchY;
+    }
     pen.beginPath();
     pen.fillRect(0, ground, canvas.width, 2); //paints ground
     pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
+    pen.fill();
     //call function again
     requestAnimationFrame(drawFrame); //This takes the drawFunction and runs it again
     //for above, a for loop should not be used because the motion will just be a teleportation back to front
 
 }
 launchButton.addEventListener("click", () => {
+    t = 0;
     drawFrame();
 });
 
