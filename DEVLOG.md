@@ -129,3 +129,5 @@
       Next Steps: I am going to finally make the animation by callin gthe mapCanvas function multiple times. The time will be 60 frames per second.
 
 
+1. In javaScript, when a function is called with parentheses: drawFrame(), it runs immediately. When a function is just called by its name, it runs when another function tells it to: requestAnimationFrame(drawFrame) (no parentheses)!
+2. I forgot to use the fill() function again. fill() is important because it actually "paints" the drawing.

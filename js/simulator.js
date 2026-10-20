@@ -46,7 +46,7 @@ function drawFrame(){
     pen.fillRect(0, ground, canvas.width, 2); //paints ground
     pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
     //call function again
-    requestAnimationFrame(drawFrame()); //This takes the drawFunction and runs it again
+    requestAnimationFrame(drawFrame); //This takes the drawFunction and runs it again
     //for above, a for loop should not be used because the motion will just be a teleportation back to front
 
 }
