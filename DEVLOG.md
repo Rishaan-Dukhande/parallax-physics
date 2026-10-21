@@ -129,5 +129,26 @@
       Next Steps: I am going to finally make the animation by callin gthe mapCanvas function multiple times. The time will be 60 frames per second.
 
 
-1. In javaScript, when a function is called with parentheses: drawFrame(), it runs immediately. When a function is just called by its name, it runs when another function tells it to: requestAnimationFrame(drawFrame) (no parentheses)!
-2. I forgot to use the fill() function again. fill() is important because it actually "paints" the drawing.
+## Oct 19, 2026 - Day 14,
+
+Today, I created the drawFrame() function, which will be used to draw every frame for the simulator. The frames will increment 60 fps, so time will increment by 1/60 every time drawFrame() is run. In human perception, this makes the object look like its moving when it is really teleporting really fast!
+
+AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. In this specific session, I had to learn how different calls of the same function in java --- whether to use () or no parentheses. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it.
+
+Key Learnings:
+
+   1. In javaScript, when a function is called with parentheses: drawFrame(), it runs immediately. When a function is just called by its name, it runs when another function tells it to: requestAnimationFrame(drawFrame) (no parentheses)!
+   2. I forgot to use the fill() function again. fill() is important because it actually "paints" the drawing.
+
+## Oct 20, 2026 - Day 15,
+
+Today, I tackled the drawFrame() function and calling it with requestAnimationFrame(). This issue was persistant in multiple attempts of solving it.
+
+
+AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it.
+
+Key Learnings:
+   1. I got confused that y increases to make a drawing go downwards. This caused me to write the falling logic incorrectly. I switched the case where falling = true with falling = false.
+   2. After making the falling variable, I wasn't using it in any way. The falling variable also needed to be used in the eventHandler for the launch button to make sure that multiple cycles of drawFrame() weren't running at the same time:
+      a. When drawFrame() is run several times, it causes the speed to increase by n times as much if n represents the number of times you click the launch button
+   To fix this, I used the falling variable in the EventHandler. I decided that it is easier to just not do anything if the button is in mid-flight and the user wants to re-launch the ball/projectile.
