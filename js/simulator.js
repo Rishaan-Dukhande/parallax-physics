@@ -37,7 +37,7 @@ function mapCanvas(time){
     return [canvasX, canvasY];
 }
 
-function drawFrame(){
+function drawFrame(t){
     //erase current screen
     pen.clearRect(0, 0, canvas.width, canvas.height);
     let coord = mapCanvas(t);
@@ -45,6 +45,8 @@ function drawFrame(){
     if (coord[1] > launchY) {
         coord[1] = launchY;
         falling = false;
+        if (!falling) requestAnimationFrame(drawFrame); //This takes the drawFunction and runs it again
+        //for above, a for loop should not be used because the motion will just be a teleportation back to front
     } else {
         t += 1/60; //adds 1/60 because frame rate is 60fps
         falling = true;
@@ -54,14 +56,12 @@ function drawFrame(){
     pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
     pen.fill();
     //call function again
-    requestAnimationFrame(drawFrame); //This takes the drawFunction and runs it again
-    //for above, a for loop should not be used because the motion will just be a teleportation back to front
+    
     
 
 }
 launchButton.addEventListener("click", () => {
-    t = 0;
-    if (!falling) drawFrame();
+    drawFrame(0);
 });
 
 //tester code
