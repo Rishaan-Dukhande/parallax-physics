@@ -42,11 +42,11 @@ function drawFrame(){
     pen.clearRect(0, 0, canvas.width, canvas.height);
     let coord = mapCanvas(t);
     //draw new screen
-    if (coord[1] >= launchY) {
+    if (coord[1] > launchY) {
         coord[1] = launchY;
-        falling = true;
-    } else {
         falling = false;
+    } else {
+        falling = true;
     }
 
     if (falling) {
@@ -75,7 +75,7 @@ launchButton.addEventListener("click", () => {
 //tester code
 speed = 20;
 angle = 60;
-drawFrame();
+/*
 console.log(mapCanvas(2));
 for (let i = 0; i < 4; i+=0.2){
     let coord = mapCanvas(i);
@@ -83,4 +83,5 @@ for (let i = 0; i < 4; i+=0.2){
     pen.arc(coord[0], coord[1], 3, 0, 2*Math.PI, true);
     pen.fill();
 }
+    */
 
