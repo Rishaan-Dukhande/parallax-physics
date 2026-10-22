@@ -163,3 +163,6 @@ Key Learnings:
    Span vs. Div:
    Span is inline, div begins on the next line
 
+   Inner workings of requestAnimationFrame() - when this function is called, it let's the function end and immediately return to where it was called. It then continues until it reaches the end of the code in the file. The requestAnimationFrame() just tells the compiler to call the function again AFTER everything ran.
+
+   This was important because it was the reason the disabling of the sliders was not working. To fix it, I added the enabling and disabling of buttons directly in the drawFrame() function.
