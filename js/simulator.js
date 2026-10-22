@@ -4,6 +4,8 @@ pen.fillStyle = "white";
 const launchButton = document.getElementById("launchButton");
 const speedSlider = document.getElementById("speedSlider");
 const angleSlider = document.getElementById("angleSlider");
+const speedLabel = document.getElementById("speedLabel");
+const angleLabel = document.getElementById("angleLabel");
 
 //variables that are constant in projectile motion
 const g = 9.8; //gravity
@@ -15,8 +17,8 @@ const launchY = ground - radius;
 
 //variables that change or are set by the user
 let t = 0; //time
-let speed = 0;
-let angle = 0; //in degrees
+let speed = 20;
+let angle = 45; //in degrees
 let falling = false;
 
 //inital pen place
