@@ -79,8 +79,6 @@ launchButton.addEventListener("click", () => {
 });
 
 //tester code
-speed = 20;
-angle = 60;
 /*
 console.log(mapCanvas(2));
 for (let i = 0; i < 4; i+=0.2){
