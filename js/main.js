@@ -116,6 +116,7 @@ function renderCard(card) {
         cardSummary.textContent = "⭐".repeat(stars); // "".repeat(n) function repeats the inputted string n times
         app.appendChild(cardSummary);
         saveStars(currLesson.id, stars); 
+    }
 
 
 

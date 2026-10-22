@@ -153,16 +153,25 @@ Key Learnings:
       a. When drawFrame() is run several times, it causes the speed to increase by n times as much if n represents the number of times you click the launch button
    To fix this, I used the falling variable in the EventHandler. I decided that it is easier to just not do anything if the button is in mid-flight and the user wants to re-launch the ball/projectile.
 
+## Oct 21, 2026 - Day 16,
 
-   Sliders are <input type="range"> There are two events possible to use in an event listener (of a slider):
+Today, I finished the simulator by adding speed and angle sliders. This allows the user to control different projectile motions. Next, I used a variable to replace all the lesson[0] calls in main.js so that the lesson structure is compatible with multiple lessons in the future.
+
+AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it.
+
+Key Learnings:
+   1. Sliders are <input type="range"> There are two events possible to use in an event listener (of a slider):
       a. "input" - a live update. The event triggers continously while a slider is being dragged
       b. "change" - only triggers and runs the event listener when you let go of the element (slider). This prevents changing while you are holding the slider
    
-   Sliders don't have a closing tag. They don't have </input>. This means that textContent can't be used on sliders because they are not containers. Therfore, there has to be a new variable to act as the label for the slider element (or any input element for that matter).
+   2. Sliders don't have a closing tag. They don't have </input>. This means that textContent can't be used on sliders because they are not containers. Therfore, there has to be a new variable to act as the label for the slider element (or any input element for that matter).
 
-   Span vs. Div:
+   3. Span vs. Div:
    Span is inline, div begins on the next line
 
-   Inner workings of requestAnimationFrame() - when this function is called, it let's the function end and immediately return to where it was called. It then continues until it reaches the end of the code in the file. The requestAnimationFrame() just tells the compiler to call the function again AFTER everything ran.
+   4. Inner workings of requestAnimationFrame() - when this function is called, it let's the function end and immediately return to where it was called. It then continues until it reaches the end of the code in the file. The requestAnimationFrame() just tells the compiler to call the function again AFTER everything ran.
 
-   This was important because it was the reason the disabling of the sliders was not working. To fix it, I added the enabling and disabling of buttons directly in the drawFrame() function.
+   5. This was important because it was the reason the disabling of the sliders was not working. To fix it, I added the enabling and disabling of buttons directly in the drawFrame() function.
+
+Next Steps: Write content for next lessons.
+
