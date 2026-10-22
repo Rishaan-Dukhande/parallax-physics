@@ -157,4 +157,9 @@ Key Learnings:
    Sliders are <input type="range"> There are two events possible to use in an event listener (of a slider):
       a. "input" - a live update. The event triggers continously while a slider is being dragged
       b. "change" - only triggers and runs the event listener when you let go of the element (slider). This prevents changing while you are holding the slider
+   
+   Sliders don't have a closing tag. They don't have </input>. This means that textContent can't be used on sliders because they are not containers. Therfore, there has to be a new variable to act as the label for the slider element (or any input element for that matter).
+
+   Span vs. Div:
+   Span is inline, div begins on the next line
 

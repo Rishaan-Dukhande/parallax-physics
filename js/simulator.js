@@ -2,6 +2,8 @@ const canvas = document.getElementById("myCanvas");
 const pen = canvas.getContext("2d");
 pen.fillStyle = "white";
 const launchButton = document.getElementById("launchButton");
+const speedSlider = document.getElementById("speedSlider");
+const angleSlider = document.getElementById("angleSlider");
 
 //variables that are constant in projectile motion
 const g = 9.8; //gravity
@@ -66,10 +68,14 @@ function drawFrame(){
 
 
 launchButton.addEventListener("click", () => {
+    angleSlider.disabled = true;
+    speedSlider.disabled = true; 
     if (!falling){
         t=0;
         drawFrame();
     }
+    angleSlider.disabled = false;
+    speedSlider.disabled = false; 
 });
 
 //tester code
@@ -84,9 +90,14 @@ for (let i = 0; i < 4; i+=0.2){
     pen.fill();
 }
     */
-const speedSlider = document.getElementById("speedSlider");
-const angleSlider = document.getElementById("angleSlider");
-speed = Number(speedSlider.value);
-angle = Number(angleSlider.value);
-speedSlider.textContent = "Speed: " + speed + "m/s";
-angleSlider.textContent = "Angle: " + angle + "˚";
+
+speedSlider.addEventListener("input", () =>{
+    speed = Number(speedSlider.value);
+    speedLabel.textContent = "Speed: " + speed + "m/s";
+});
+
+angleSlider.addEventListener("input", () =>{
+    angle = Number(angleSlider.value);
+    angleLabel.textContent = "Angle: " + angle + "˚";
+});
+
