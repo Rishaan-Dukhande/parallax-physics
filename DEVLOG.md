@@ -152,3 +152,9 @@ Key Learnings:
    2. After making the falling variable, I wasn't using it in any way. The falling variable also needed to be used in the eventHandler for the launch button to make sure that multiple cycles of drawFrame() weren't running at the same time:
       a. When drawFrame() is run several times, it causes the speed to increase by n times as much if n represents the number of times you click the launch button
    To fix this, I used the falling variable in the EventHandler. I decided that it is easier to just not do anything if the button is in mid-flight and the user wants to re-launch the ball/projectile.
+
+
+   Sliders are <input type="range"> There are two events possible to use in an event listener (of a slider):
+      a. "input" - a live update. The event triggers continously while a slider is being dragged
+      b. "change" - only triggers and runs the event listener when you let go of the element (slider). This prevents changing while you are holding the slider
+

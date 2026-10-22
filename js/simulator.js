@@ -84,4 +84,9 @@ for (let i = 0; i < 4; i+=0.2){
     pen.fill();
 }
     */
-
+const speedSlider = document.getElementById("speedSlider");
+const angleSlider = document.getElementById("angleSlider");
+speed = Number(speedSlider.value);
+angle = Number(angleSlider.value);
+speedSlider.textContent = "Speed: " + speed + "m/s";
+angleSlider.textContent = "Angle: " + angle + "˚";
