@@ -47,8 +47,12 @@ function drawFrame(){
     if (coord[1] > launchY) {
         coord[1] = launchY;
         falling = false;
+        angleSlider.disabled = false;
+        speedSlider.disabled = false; 
     } else {
         falling = true;
+        angleSlider.disabled = true;
+        speedSlider.disabled = true;
     }
 
     if (falling) {
@@ -68,14 +72,10 @@ function drawFrame(){
 
 
 launchButton.addEventListener("click", () => {
-    angleSlider.disabled = true;
-    speedSlider.disabled = true; 
     if (!falling){
         t=0;
         drawFrame();
     }
-    angleSlider.disabled = false;
-    speedSlider.disabled = false; 
 });
 
 //tester code
