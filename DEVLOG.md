@@ -171,7 +171,7 @@ Key Learnings:
 
    4. Inner workings of requestAnimationFrame() - when this function is called, it let's the function end and immediately return to where it was called. It then continues until it reaches the end of the code in the file. The requestAnimationFrame() just tells the compiler to call the function again AFTER everything ran.
 
-   5. This was important because it was the reason the disabling of the sliders was not working. To fix it, I added the enabling and disabling of buttons directly in the drawFrame() function.
+   his was important because it was the reason the disabling of the sliders was not working. To fix it, I added the enabling and disabling of buttons directly in the drawFrame() function.
 
 Next Steps: Write content for next lessons.
 
