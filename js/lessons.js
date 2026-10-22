@@ -6,6 +6,7 @@ const card4 = {type: "summary", title: "Summary", text: "Scalars are measurement
 
 export const lessons = [
     {id: 101, title: "1.1 Scalars and Vectors (1D)", cards: [card1, card2, card3, card4]},
+    {id: 102, title: "1.2 Displacement, Velocity, Acceleration", cards: [card1, card4]},
 ]
 
 
