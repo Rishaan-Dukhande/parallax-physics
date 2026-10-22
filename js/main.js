@@ -11,15 +11,15 @@ app.appendChild(status);
 let cardNum = 0;
 let mistakes = 0;
 let checkAnswered = false;
-let currLessons = lesson[1]; //Number can be changed anytime (does not have to be 0)
+let currLesson = lessons[1]; //Number can be changed anytime (does not have to be 0)
 startButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
 let recentProgress = loadProgress();
-if (recentProgress[currLessons.id] === undefined){
+if (recentProgress[currLesson.id] === undefined){
     status.textContent = "Status: Not started yet";
 } else {
-    status.textContent = "Status: " + "⭐".repeat(recentProgress[currLessons.id]);
+    status.textContent = "Status: " + "⭐".repeat(recentProgress[currLesson.id]);
 }
 
 //This calculates the stars a user is awarded based on the number of mistakes made on a lesson quiz
@@ -67,7 +67,7 @@ function renderCard(card) {
     app.appendChild(p);
 
     //Controls button disabling
-    nextCard.disabled = (cardNum === currLessons.cards.length - 1);
+    nextCard.disabled = (cardNum === currLesson.cards.length - 1);
     previousCard.disabled = (cardNum <= 0);
 
     if (card.type === "check"){
@@ -115,8 +115,7 @@ function renderCard(card) {
         cardSummary.classList.add("card-text");
         cardSummary.textContent = "⭐".repeat(stars); // "".repeat(n) function repeats the inputted string n times
         app.appendChild(cardSummary);
-        saveStars(currLessons.id, stars) //lesson ID is set to 101 right now because we don't have a lessonID yet
-    }
+        saveStars(currLesson.id, stars); 
 
 
 
@@ -126,8 +125,8 @@ function renderCard(card) {
 
 
 startButton.addEventListener("click", () => {
-    heading1.textContent = currLessons.title;
-    renderCard(currLessons.cards[cardNum]);
+    heading1.textContent = currLesson.title;
+    renderCard(currLesson.cards[cardNum]);
     // Start button is disabled after clicked even once
     startButton.disabled = true;
     mistakes = 0;
@@ -135,16 +134,16 @@ startButton.addEventListener("click", () => {
 });
 
 nextCard.addEventListener("click", () => {
-    if(cardNum < currLessons.cards.length - 1){
+    if(cardNum < currLesson.cards.length - 1){
         cardNum++;
     } 
     
-    renderCard(currLessons.cards[cardNum]);
+    renderCard(currLesson.cards[cardNum]);
 });
 
 previousCard.addEventListener("click", () => {
     if(cardNum > 0){
         cardNum--;
     }
-    renderCard(currLessons.cards[cardNum]);
+    renderCard(currLesson.cards[cardNum]);
 });
