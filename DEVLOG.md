@@ -177,3 +177,15 @@ Next Steps: Write content for next lessons.
 
 ## Oct 22, 2026 - Day 17,
 
+Today, I created a function to display the home screen. This displays all of the lessons in the unit along with their progress for a user to see. Then, I created a home button to call the function. Since the startButton is identical, I removed the start button and the old status element.
+
+I decided to put the home screen in main.js because the home screen resets multiple variables that are already in home screen. This is easier then importing another file just for home.
+
+Key Learnings:
+   1. When you use a for each loop to create elements, if you set any characteristics of one singular element, then it will only save the characteristics of the last time it was set to different values.
+   2. Spelling mistakes are common. A way to avoid this is to use autocomplete by pressing tab on the computer. This will autocomplete a variable name without any mispellings.
+   3. Functions should do basic tasks. The home button should just set up the screen. The event handlers are created for changing things ONLY after a lesson has been selected. At first, I merged everything into the home function, so it would display the second lesson and overwrite the first lesson. This means that the user is forced into the second lesson without a choice. (Second lesson was the last lesson currently developed).
+
+   AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it. In this session, I had AI explain me how the replaceChildren method resets the app screen to an empty screen and catch my misspelling errors.
+
+   Next Steps: I will write the lesson content for lessons 1.2 - 1.5 to finish the Kinematics Unit. Then, I will create a boss battle, something to look forward to!
