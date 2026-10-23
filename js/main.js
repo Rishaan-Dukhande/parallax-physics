@@ -150,24 +150,29 @@ previousCard.addEventListener("click", () => {
 });
 
 // ========= Home Screen ==========
-lessons.forEach((lesson) => {
-    const lessonButton = document.createElement("button");
-    currLesson = lesson;
-    cardNum = 0;
-    mistakes = 0;
-    checkAnswered = false;
-    let lessonProgress = loadProgress();
-    heading1.textContent = currLesson.title;
-    p.textContent = currLesson.cards[cardNum];
+function showHome(){
+    lessons.forEach((lesson) => {
+        const lessonButton = document.createElement("button");
+        lessonButton.textContent = lesson.title;
+        lessonButton.classList.add("btn-primary");
+        app.appendChild(lessonButton);
+        
+        let lessonProgress = loadProgress();
+        if (lessonProgress[lesson.id] === undefined){
+            status.textContent = "Status: Not started yet";
+        } else {
+            status.textContent = "Status: " + "⭐".repeat(lessonProgress[lesson.id]);
+        }
 
-    if (lessonProgress[currLesson.id] = undefined){
-        stars = 0;
-    } else {
-        stars = lessonProgress[currLesson.id];
-    }
-    app.replaceChildren;
-    app.appendChild(span);
-    app.appendChild(h2); 
-    app.appendChild(p);
-});
+        lessonButton.addEventListener("click", () => {
+            currLesson = lesson;
+            cardNum = 0;
+            mistakes = 0;
+            checkAnswered = false;
+        });
+    });
+}
+
+showHome();
+
 
