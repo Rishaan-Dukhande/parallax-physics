@@ -151,17 +151,17 @@ previousCard.addEventListener("click", () => {
 
 // ========= Home Screen ==========
 function showHome(){
+    app.replaceChildren();
     lessons.forEach((lesson) => {
         const lessonButton = document.createElement("button");
-        lessonButton.textContent = lesson.title;
         lessonButton.classList.add("btn-primary");
         app.appendChild(lessonButton);
         
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
-            status.textContent = "Status: Not started yet";
+            lessonButton.textContent = lesson.title + ", Status: Not started yet";
         } else {
-            status.textContent = "Status: " + "⭐".repeat(lessonProgress[lesson.id]);
+            lessonButton.textContent = lesson.title + ", Status: " + "⭐".repeat(lessonProgress[lesson.id]);
         }
 
         lessonButton.addEventListener("click", () => {
@@ -169,6 +169,12 @@ function showHome(){
             cardNum = 0;
             mistakes = 0;
             checkAnswered = false;
+
+            //same as previous start button
+            heading1.textContent = currLesson.title;
+            renderCard(currLesson.cards[cardNum]);
+            // lesson button is disabled after clicked even once
+            lessonButton.disabled = true;
         });
     });
 }
