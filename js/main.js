@@ -15,7 +15,6 @@ let currLesson = lessons[1]; //Number can be changed anytime (does not have to b
 homeButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
-let recentProgress = loadProgress();
 
 //This calculates the stars a user is awarded based on the number of mistakes made on a lesson quiz
 function calculateStars(){
@@ -44,7 +43,7 @@ function showAnswered(card, choicesDiv, feedbackDiv){
 
 // This function renders the cards for each lesson on the screen in the app element
 function renderCard(card) {
-
+    homeButton.disabled = false; //enables home Button when not on home screen
     //Creating a span
     const span = document.createElement("span");
     span.classList.add("card-tag");
@@ -124,7 +123,10 @@ function renderCard(card) {
 
 homeButton.addEventListener("click", () => {
     showHome();
+    heading1.textContent = "PARALLAX"
     homeButton.disabled = true;
+    nextButton.disabled = true;
+    previousButton.disabled = true;
 });
 
 nextCard.addEventListener("click", () => {
@@ -170,3 +172,5 @@ function showHome(){
     });
 }
 
+showHome();
+homeButton.disabled = true;
