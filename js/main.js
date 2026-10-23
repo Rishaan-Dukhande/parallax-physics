@@ -148,3 +148,26 @@ previousCard.addEventListener("click", () => {
     }
     renderCard(currLesson.cards[cardNum]);
 });
+
+// ========= Home Screen ==========
+lessons.forEach((lesson) => {
+    const lessonButton = document.createElement("button");
+    currLesson = lesson;
+    cardNum = 0;
+    mistakes = 0;
+    checkAnswered = false;
+    let lessonProgress = loadProgress();
+    heading1.textContent = currLesson.title;
+    p.textContent = currLesson.cards[cardNum];
+
+    if (lessonProgress[currLesson.id] = undefined){
+        stars = 0;
+    } else {
+        stars = lessonProgress[currLesson.id];
+    }
+    app.replaceChildren;
+    app.appendChild(span);
+    app.appendChild(h2); 
+    app.appendChild(p);
+});
+
