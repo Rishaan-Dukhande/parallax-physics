@@ -4,10 +4,7 @@ const homeButton = document.getElementById("homeButton")
 const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
-const status = document.createElement("p");
 const app = document.getElementById("app");
-status.classList.add("card-text");
-app.appendChild(status);
 let cardNum = 0;
 let mistakes = 0;
 let checkAnswered = false;
@@ -125,8 +122,8 @@ homeButton.addEventListener("click", () => {
     showHome();
     heading1.textContent = "PARALLAX"
     homeButton.disabled = true;
-    nextButton.disabled = true;
-    previousButton.disabled = true;
+    nextCard.disabled = true;
+    perviousCard.disabled = true;
 });
 
 nextCard.addEventListener("click", () => {
