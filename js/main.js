@@ -1,6 +1,6 @@
 import {lessons} from "./lessons.js"
 import {saveStars, loadProgress} from "./progress.js"
-const startButton = document.getElementById("startButton")
+const homeButton = document.getElementById("homeButton")
 const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
@@ -12,15 +12,10 @@ let cardNum = 0;
 let mistakes = 0;
 let checkAnswered = false;
 let currLesson = lessons[1]; //Number can be changed anytime (does not have to be 0)
-startButton.disabled = false;
+homeButton.disabled = false;
 nextCard.disabled = true;
 previousCard.disabled = true;
 let recentProgress = loadProgress();
-if (recentProgress[currLesson.id] === undefined){
-    status.textContent = "Status: Not started yet";
-} else {
-    status.textContent = "Status: " + "⭐".repeat(recentProgress[currLesson.id]);
-}
 
 //This calculates the stars a user is awarded based on the number of mistakes made on a lesson quiz
 function calculateStars(){
@@ -116,6 +111,8 @@ function renderCard(card) {
         cardSummary.textContent = "⭐".repeat(stars); // "".repeat(n) function repeats the inputted string n times
         app.appendChild(cardSummary);
         saveStars(currLesson.id, stars); 
+        homeButton.disabled = false;
+        previousCard.disabled = true;
     }
 
 
@@ -125,13 +122,9 @@ function renderCard(card) {
 
 
 
-startButton.addEventListener("click", () => {
-    heading1.textContent = currLesson.title;
-    renderCard(currLesson.cards[cardNum]);
-    // Start button is disabled after clicked even once
-    startButton.disabled = true;
-    mistakes = 0;
-    checkAnswered = false;
+homeButton.addEventListener("click", () => {
+    showHome();
+    homeButton.disabled = true;
 });
 
 nextCard.addEventListener("click", () => {
@@ -173,12 +166,7 @@ function showHome(){
             //same as previous start button
             heading1.textContent = currLesson.title;
             renderCard(currLesson.cards[cardNum]);
-            // lesson button is disabled after clicked even once
-            lessonButton.disabled = true;
         });
     });
 }
-
-showHome();
-
 
