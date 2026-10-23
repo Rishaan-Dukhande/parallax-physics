@@ -123,7 +123,7 @@ homeButton.addEventListener("click", () => {
     heading1.textContent = "PARALLAX"
     homeButton.disabled = true;
     nextCard.disabled = true;
-    perviousCard.disabled = true;
+    previousCard.disabled = true;
 });
 
 nextCard.addEventListener("click", () => {
