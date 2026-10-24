@@ -4,6 +4,7 @@ const homeButton = document.getElementById("homeButton")
 const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
+const launchButton = document.getElementById("launchButton");
 const app = document.getElementById("app");
 //for boss battle
 let bossHealth = 10;
@@ -57,7 +58,7 @@ function renderCard(card) {
     span.textContent = card.type;
     h2.textContent = card.title;
     p.textContent = card.text;
-    app.replaceChildren();
+    app.replaceChildren(); 
     app.appendChild(span);
     app.appendChild(h2); //header2 comes before the paragraph/card description
     app.appendChild(p);
@@ -150,6 +151,7 @@ function showBossQuestion(card) {
     const feedbackDiv = document.createElement("div");
     feedbackDiv.hidden = true;
     feedbackDiv.classList.add("feedback");
+
     card.choices.forEach((choice, i) => {
         const button = document.createElement("button");
         button.textContent = choice;
@@ -159,13 +161,19 @@ function showBossQuestion(card) {
         button.addEventListener("click", () => {
             if (i === card.answer) {
                 showAnswered(card, choicesDiv, feedbackDiv);
+                streak++;
+                if (streak >= 3) {
+                    streak = 0;
+                    lives++;
+                }
 
             } else { 
                 button.classList.add("choice--wrong");
-                feedbackDiv.textContent = "Not quite, try again";
+                feedbackDiv.textContent = "Incorrect. -1 life";
                 feedbackDiv.hidden = false;
                 button.disabled = true;
-                mistakes++; 
+                lives--;
+                streak = 0;
             }
 
         });
@@ -236,10 +244,13 @@ function showHome(){
 
     bossButton.addEventListener("click", () => {
         let questions = [];
-        lessons.forEach((currLesson) => {
-            lessons[currLesson].cards.forEach((card) => {
+        bossHealth = 10;
+        lives = 3;
+        streak = 0;
+        lessons.forEach((lesson) => {
+            lesson.cards.forEach((card) => {
                 if (card.type === "check") {
-                    questions.push();
+                    questions.push(card);
                 }
             });
         });
