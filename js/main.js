@@ -41,7 +41,6 @@ function showAnswered(card, choicesDiv, feedbackDiv){
     feedbackDiv.textContent = card.explanation;
     nextCard.disabled = false;
     checkAnswered = true;
-
 }
 
 //This shows the feedback and enables the next Card when the user clicks the correct answer
@@ -52,7 +51,6 @@ function showBossAnswer(card, choicesDiv, feedbackDiv){
     });
     feedbackDiv.hidden = false;
     feedbackDiv.textContent = card.explanation;
-    checkAnswered = true;
 
 }
 
@@ -250,6 +248,7 @@ previousCard.addEventListener("click", () => {
 function showHome(){
     app.replaceChildren();
     homeButton.textContent = "Home";
+    launchButton.disabled = false;
     lessons.forEach((lesson) => {
         const lessonButton = document.createElement("button");
         lessonButton.classList.add("btn-primary");
@@ -274,7 +273,7 @@ function showHome(){
         });
     });
     const bossButton = document.createElement("button");
-    bossButton.textContent = "Unit 1 Boss";
+    bossButton.textContent = "⚔ Unit 1 Boss";
     bossButton.classList.add("btn-primary");
     app.appendChild(bossButton);
 
