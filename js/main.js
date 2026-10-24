@@ -6,6 +6,9 @@ const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const launchButton = document.getElementById("launchButton");
 const app = document.getElementById("app");
+//for drawing boss
+const canvas = document.getElementById("myCanvas");
+    const pen = canvas.getContext("2d");
 //for boss battle
 let bossHealth = 10;
 let lives = 3;
@@ -300,6 +303,7 @@ launchButton.addEventListener("click", () => {
         launchButton.disabled = true;
     }
 });
+
 
 showHome();
 homeButton.disabled = true;

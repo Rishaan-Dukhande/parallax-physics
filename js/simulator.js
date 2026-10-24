@@ -44,6 +44,7 @@ function mapCanvas(time){
 function drawFrame(){
     //erase current screen
     pen.clearRect(0, 0, canvas.width, canvas.height);
+    if (launchButton.classList.contains("boss-mode")) drawBoss();
     let coord = mapCanvas(t);
     //draw new screen
     if (coord[1] > launchY) {
@@ -101,3 +102,9 @@ angleSlider.addEventListener("input", () =>{
     angleLabel.textContent = "Angle: " + angle + "˚";
 });
 
+//this function draws the boss
+function drawBoss(){
+    pen.font = "40px san-serif";
+    pen.textAlign = "center";
+    pen.fillText("👾", 300, 290)
+}
