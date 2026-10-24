@@ -211,8 +211,25 @@ Challenges/Learnings:
 
 Next Steps: Tomorrow is the last day. I will finish the boss battle. If I have time, I will add a galaxy dashboard page as a cool home screen and add an AI tutor.
 
-## Oct 23, 2026 - Day 18,
+## Oct 24, 2026 - Day 19,
    ### Segment 1 - Finish Unit 1 Lessons
    In the morning, I wrote lesson 1.2 completely myself. Since it took a lot of time, I had AI help write the content for lessons 1.3-1.5. I reviewed the lesson content to make sure it is comprehendible and good for teaching, making a few edits as well.
 
-   ### Segment 2 - 
+   AI Usage: AI helped me draft the text and questions for lessons 1.3 - 1.5. I reviewed and edited them
+
+   ### Segment 2 - Finished Boss Battle
+   During the whole afternoon, I completed the boss battle. Before the session, the boss battle was just having the projectile motion simulator. Now, I have added questions, a boss icon, and end screens.
+
+   Key Decisions:
+      1. There are two click listners on the launch button from seperate files so that multiple exported variables and functions are not needed, letting files control their own behavior.
+      2. I created the nextQuestion button at the top instead of inside the showBossQuestion() function to avoid the need of making multiple eventListeners
+      3. I decided to add an emoji boss instead of an image to make it fast while being realistic.
+      4. I chose to add a nextQuestion button instead of an automatic question button so that a user can read why their answer is wrong or correct and see whether their projectile misses or hits the boss.
+
+   Challenges/Key Learnings:
+      1. I needed both the simulator.js and main.js files to check the same app element. I learned that we can use getElementById seperately in both files to get and change the same element.
+      2. I practiced using export and import between the simulator.js and main.js files. I exported drawScene() and hitCount and imported them into main.js so that main.js can call the simulator.
+      3. Since main.js can't change the hitCount in simulator.js but only see it, I used what a car odometer uses as well. I first find the number of hits the player has made and subtract it from the 10hp the boss starts with to display the bosses health throughout the boss battle.
+      4. To check if an element has a class, you can use classList.contains(); (Using === does not work).
+      5. I had orginially made the question list a local variable in showBossQuestion(). This was a problem because every single time the user presses the nextQuestionButton, a new question should be displayed. To fix this, I made the questions list a global variable
+

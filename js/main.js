@@ -309,6 +309,7 @@ function showHome(){
         app.classList.add("boss-mode");
         drawScene();
         hitsAtStart = hitCount;
+        questions = [];
         bossHealth = 10;
         lives = 3;
         streak = 0;
