@@ -359,6 +359,11 @@ button:disabled {
   border-width: thick;
 }
 
+.node-boss{
+  border-color: red;
+  border-width: thick;
+}
+
 /* Written by me for bigger galaxy nodes */
 .node {
   width: 70px;

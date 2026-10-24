@@ -278,19 +278,19 @@ function showHome(){
     launchButton.disabled = false;
     const lessonConstellation = document.createElement("div");
     lessonConstellation.classList.add("map");
+    let foundCurrent = false;
+    let positions = [{x: 15, y:60}, {x: 30, y:30}, {x: 45, y:16}, {x: 60, y:19}, {x: 75, y:38}, {x: 90, y:74}];
 
     const bossButton = document.createElement("button");
     bossButton.textContent = "👾";
     bossButton.classList.add("node");
-    bossButton.classList.add("boss-mode");
+    bossButton.classList.add("node--boss");
     bossButton.disabled = true;
     bossButton.style.left = positions[5].x + "%";
     bossButton.style.top = positions[5].y + "%";
 
     lessonConstellation.appendChild(bossButton);
 
-    let foundCurrent = false;
-    let positions = [{x: 15, y:60}, {x: 30, y:30}, {x: 45, y:16}, {x: 60, y:19}, {x: 75, y:38}, {x: 90, y:74}];
     lessons.forEach((lesson, i) => {
         const lessonButton = document.createElement("button");
         lessonButton.classList.add("node");
@@ -298,6 +298,7 @@ function showHome(){
 
         lessonButton.style.left = positions[i].x + "%";
         lessonButton.style.top = positions[i].y + "%";
+        lessonButton.title = lesson.title;
         
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
@@ -328,12 +329,9 @@ function showHome(){
         });
         lessonConstellation.append(lessonButton);
 
-        if (i === 5){
-            if (lessonButton.classList.contains("node--done")) {
-                bossButton.disabled = false;
-            }
-        }
     });
+
+    if (foundCurrent === false) bossButton.disabled = false;
 
 
     bossButton.addEventListener("click", () => {
