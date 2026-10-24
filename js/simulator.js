@@ -6,6 +6,7 @@ const speedSlider = document.getElementById("speedSlider");
 const angleSlider = document.getElementById("angleSlider");
 const speedLabel = document.getElementById("speedLabel");
 const angleLabel = document.getElementById("angleLabel");
+const app = document.getElementById("app");
 
 //variables that are constant in projectile motion
 const g = 9.8; //gravity
@@ -14,6 +15,9 @@ const ground = 300; //ground is at y = 450px
 const launchX = 8;
 const radius = 8;
 const launchY = ground - radius;
+
+//boss target
+let targetX = 300;
 
 //variables that change or are set by the user
 let t = 0; //time
@@ -44,7 +48,8 @@ function mapCanvas(time){
 function drawFrame(){
     //erase current screen
     pen.clearRect(0, 0, canvas.width, canvas.height);
-    if (launchButton.classList.contains("boss-mode")) drawBoss();
+    
+    if (app.classList.contains("boss-mode")) drawBoss();
     let coord = mapCanvas(t);
     //draw new screen
     if (coord[1] > launchY) {
@@ -68,7 +73,6 @@ function drawFrame(){
     pen.fillRect(0, ground, canvas.width, 2); //paints ground
     pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
     pen.fill();
-    //call function again
     
 
 }
@@ -104,7 +108,22 @@ angleSlider.addEventListener("input", () =>{
 
 //this function draws the boss
 function drawBoss(){
-    pen.font = "40px san-serif";
+    pen.font = "40px sans-serif";
     pen.textAlign = "center";
-    pen.fillText("👾", 300, 290)
+    pen.fillText("👾", targetX, 290)
+}
+
+export function drawScene(){
+    //erase current screen
+    pen.clearRect(0, 0, canvas.width, canvas.height);
+    pen.beginPath();
+
+    //draw ground
+    pen.fillRect(0, ground, canvas.width, 2); //paints ground
+    //draw ball
+    pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
+    pen.fill();
+
+    if (app.classList.contains("boss-mode")) drawBoss();
+    
 }

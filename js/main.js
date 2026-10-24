@@ -1,14 +1,13 @@
 import {lessons} from "./lessons.js"
 import {saveStars, loadProgress} from "./progress.js"
+import {drawScene} from "./simulator.js"
+
 const homeButton = document.getElementById("homeButton")
 const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const launchButton = document.getElementById("launchButton");
 const app = document.getElementById("app");
-//for drawing boss
-const canvas = document.getElementById("myCanvas");
-    const pen = canvas.getContext("2d");
 //for boss battle
 let bossHealth = 10;
 let lives = 3;
@@ -230,6 +229,8 @@ homeButton.addEventListener("click", () => {
     nextCard.disabled = true;
     previousCard.disabled = true;
     app.classList.remove("boss-mode");
+    //draws Scene after boss is removed
+    drawScene();
 });
 
 nextCard.addEventListener("click", () => {
@@ -283,6 +284,7 @@ function showHome(){
     bossButton.addEventListener("click", () => {
         launchButton.disabled = true;
         app.classList.add("boss-mode");
+        drawScene();
         let questions = [];
         bossHealth = 10;
         lives = 3;
@@ -299,7 +301,7 @@ function showHome(){
 }
 //disables launch Button if the user is in the boss battle
 launchButton.addEventListener("click", () => {
-    if (launchButton.classList.contains("boss-mode")) {
+    if (app.classList.contains("boss-mode")) {
         launchButton.disabled = true;
     }
 });
