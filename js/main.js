@@ -279,12 +279,14 @@ function showHome(){
     const lessonConstellation = document.createElement("div");
     lessonConstellation.classList.add("map");
 
-    lessons.forEach((lesson) => {
+    let positions = [{x: 15, y:60}, {x: 30, y:30}, {x: 45, y:16}, {x: 60, y:19}, {x: 75, y:38}, {x: 90, y:74}];
+    lessons.forEach((lesson, i) => {
         const lessonButton = document.createElement("button");
         lessonButton.classList.add("node");
         lessonConstellation.appendChild(lessonButton);
 
-        let positions = [x,y];
+        lessonButton.style.left = position[i].x + "%";
+        lessonButton.style.top = position[i].y + "%";
         
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
@@ -303,6 +305,7 @@ function showHome(){
             heading1.textContent = currLesson.title;
             renderCard(currLesson.cards[cardNum]);
         });
+        lessonConstellation.append(lessonButton);
     });
     const bossButton = document.createElement("button");
     bossButton.textContent = "⚔ Unit 1 Boss";
