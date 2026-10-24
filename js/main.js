@@ -11,6 +11,8 @@ const nextQuestionButton = document.createElement("button");
 nextQuestionButton.classList.add("btn-primary");
 nextQuestionButton.textContent = "Next Question";
 const app = document.getElementById("app");
+
+let questions = [];
 //for boss battle
 let hitsAtStart = 0;
 let bossHealth = 10;
@@ -142,6 +144,7 @@ function renderCard(card) {
 // This function renders the questions for the boss battle
 function showBossQuestion(card) {
     homeButton.disabled = false; //enables home Button when not on home screen
+    launchButton.disabled = true;
     //Creating a span
     const span = document.createElement("span");
     span.classList.add("card-tag");
@@ -234,7 +237,7 @@ function displayVictory(){
     const victoryTitle = document.createElement("h1");
     victoryTitle.textContent = "VICTORY!"
     const victoryExplanation = document.createElement("span");
-    victoryExplanation.textContent = "Congratualations! You have defeated the Unit 1 Boss and shown your excellence with kinematics!";
+    victoryExplanation.textContent = "Congratulations! You have defeated the Unit 1 Boss with " + lives + " lives left. You have shown your excellence with kinematics!";
 
     app.appendChild(victoryTitle);
     app.appendChild(victoryExplanation);
@@ -305,7 +308,6 @@ function showHome(){
         launchButton.disabled = true;
         app.classList.add("boss-mode");
         drawScene();
-        let questions = [];
         hitsAtStart = hitCount;
         bossHealth = 10;
         lives = 3;
@@ -333,6 +335,7 @@ nextQuestionButton.addEventListener("click", () => {
         displayVictory();
     } else {
         drawScene();
+        showBossQuestion(questions[Math.floor(Math.random()*questions.length)]);
     }
 });
 

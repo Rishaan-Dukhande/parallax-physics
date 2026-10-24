@@ -61,11 +61,11 @@ function drawFrame(){
         if (app.classList.contains("boss-mode")){
             if (Math.abs(coord[0] - targetX) <=25 ){
                 hitCount++;
-                pen.font = "40";
-                pen.fillText("HIT!, canvas.width/2, canvas.height/2");
+                pen.font = "40px sans-serif";
+                pen.fillText("HIT!", canvas.width/2, canvas.height/2);
             } else {
-                pen.font = "40";
-                pen.fillText("MISS, canvas.width/2, canvas.height/2");
+                pen.font = "40px sans-serif";
+                pen.fillText("MISS", canvas.width/2, canvas.height/2);
             }
 
             targetX = Math.random()*451 + 100;
