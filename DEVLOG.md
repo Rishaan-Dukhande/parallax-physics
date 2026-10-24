@@ -210,3 +210,9 @@ Challenges/Learnings:
    3. Buttons should be set in a specific state when entering a screen, not at the top of a file where they are constantly enabled or disabled. This will make buttons not function properly.
 
 Next Steps: Tomorrow is the last day. I will finish the boss battle. If I have time, I will add a galaxy dashboard page as a cool home screen and add an AI tutor.
+
+## Oct 23, 2026 - Day 18,
+   ### Segment 1 - Finish Unit 1 Lessons
+   In the morning, I wrote lesson 1.2 completely myself. Since it took a lot of time, I had AI help write the content for lessons 1.3-1.5. I reviewed the lesson content to make sure it is comprehendible and good for teaching, making a few edits as well.
+
+   ### Segment 2 - 
