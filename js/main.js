@@ -171,6 +171,16 @@ function showHome(){
     bossButton.textContent = "Unit 1 Boss";
     bossButton.classList.add("btn-primary");
     app.appendChild(bossButton);
+
+    bossButton.addEventListener("click", () => {
+        let bossHealth = 10;
+        let lives = 3;
+        lessons.cards.forEach((card) => {
+            if (card.type === "check") {
+                renderCard(card);
+            }
+        });
+    });
 }
 
 showHome();
