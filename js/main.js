@@ -129,10 +129,15 @@ function showBossQuestion(card) {
     const span = document.createElement("span");
     span.classList.add("card-tag");
 
+    const playerData = document.createElement("span");
+    playerData.classList.add("card-tag");
+
     const h2 = document.createElement("h2");
     h2.classList.add("card-title"); // adds card-title class from css to the heading2 element
+    
     const p = document.createElement("p");
     p.classList.add("card-text");
+    
     span.textContent = card.type;
     h2.textContent = card.title;
     p.textContent = card.text;
@@ -141,8 +146,6 @@ function showBossQuestion(card) {
     app.appendChild(h2); //header2 comes before the paragraph/card description
     app.appendChild(p);
 
-    
-    nextCard.disabled = true;
     const questionText = document.createElement("p");
     questionText.classList.add("card-text");
     questionText.textContent = card.question;
@@ -166,6 +169,7 @@ function showBossQuestion(card) {
                     streak = 0;
                     lives++;
                 }
+                launchButton.disabled = false;
 
             } else { 
                 button.classList.add("choice--wrong");
@@ -174,19 +178,36 @@ function showBossQuestion(card) {
                 button.disabled = true;
                 lives--;
                 streak = 0;
-            }
+                launchButton.disabled = true;
 
+                if (lives === 0) {
+                    displayDefeat();
+                }
+            }
+            playerData.textContent = "Lives: " + lives + "  Streak: " + streak + "  Boss Health: " + bossHealth;
         });
         choicesDiv.appendChild(button);
     });
     app.appendChild(questionText);
     app.appendChild(choicesDiv);
     app.appendChild(feedbackDiv);
-
-    if (checkAnswered === true) showAnswered(card, choicesDiv, feedbackDiv);
 }
 
+//this function shows the defeat screen if the user runs out of lives
+function displayDefeat(){
+    app.replaceChildren();
+    const defeatTitle = document.createElement("h1");
+    defeatTitle.textContent = "DEFEATED"
+    const defeatExplanation = document.createElement("span");
+    defeatExplanation.textContent = "You lost all your lives. You dealed " + (10-bossHealth) + " damage to the boss";
 
+    const endBoss = document.getElementById("homeButton");
+    endBoss.textContent = "End Battle";
+    endBoss.addEventListener("click", () => {
+        app.classList.remove("boss-mode");
+        //render home Screen
+    });
+}
 
 homeButton.addEventListener("click", () => {
     showHome();
@@ -194,6 +215,7 @@ homeButton.addEventListener("click", () => {
     homeButton.disabled = true;
     nextCard.disabled = true;
     previousCard.disabled = true;
+    app.classList.add("boss-mode");
 });
 
 nextCard.addEventListener("click", () => {

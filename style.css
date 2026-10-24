@@ -352,3 +352,9 @@ button:disabled {
 .choice--correct:disabled, .choice--wrong:disabled {
   opacity: 1;
 }
+
+/*This is written by me for the boss battle */
+.boss-mode{
+  border-color: red;
+  border-width: thick;
+}
