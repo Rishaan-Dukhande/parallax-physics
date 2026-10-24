@@ -1,14 +1,18 @@
 import {lessons} from "./lessons.js"
 import {saveStars, loadProgress} from "./progress.js"
-import {drawScene} from "./simulator.js"
+import {drawScene, hitCount} from "./simulator.js"
 
 const homeButton = document.getElementById("homeButton")
 const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const launchButton = document.getElementById("launchButton");
+const nextQuestionButton = document.createElement("button");
+nextQuestionButton.classList.add("btn-primary");
+nextQuestionButton.textContent = "Next Question";
 const app = document.getElementById("app");
 //for boss battle
+let hitsAtStart = 0;
 let bossHealth = 10;
 let lives = 3;
 let streak = 0;
@@ -186,6 +190,8 @@ function showBossQuestion(card) {
                 }
                 launchButton.disabled = false;
 
+                app.appendChild(nextQuestionButton);
+
             } else { 
                 button.classList.add("choice--wrong");
                 feedbackDiv.textContent = "Incorrect. -1 life";
@@ -220,6 +226,20 @@ function displayDefeat(){
     app.appendChild(defeatExplanation);
     const endBoss = document.getElementById("homeButton");
     endBoss.textContent = "End Battle";
+}
+
+//this function shows the victory screen if the user defeats the boss
+function displayVictory(){
+    app.replaceChildren();
+    const victoryTitle = document.createElement("h1");
+    victoryTitle.textContent = "VICTORY!"
+    const victoryExplanation = document.createElement("span");
+    victoryExplanation.textContent = "Congratualations! You have defeated the Unit 1 Boss and shown your excellence with kinematics!";
+
+    app.appendChild(victoryTitle);
+    app.appendChild(victoryExplanation);
+    const returnHome = document.getElementById("homeButton");
+    returnHome.textContent = "Return Home";
 }
 
 homeButton.addEventListener("click", () => {
@@ -286,6 +306,7 @@ function showHome(){
         app.classList.add("boss-mode");
         drawScene();
         let questions = [];
+        hitsAtStart = hitCount;
         bossHealth = 10;
         lives = 3;
         streak = 0;
@@ -306,6 +327,14 @@ launchButton.addEventListener("click", () => {
     }
 });
 
+nextQuestionButton.addEventListener("click", () => {
+    bossHealth = 10 - (hitCount - hitsAtStart);
+    if (bossHealth <= 0) {
+        displayVictory();
+    } else {
+        drawScene();
+    }
+});
 
 showHome();
 homeButton.disabled = true;

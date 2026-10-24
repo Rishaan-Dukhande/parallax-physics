@@ -18,6 +18,7 @@ const launchY = ground - radius;
 
 //boss target
 let targetX = 300;
+export let hitCount = 0;
 
 //variables that change or are set by the user
 let t = 0; //time
@@ -57,6 +58,18 @@ function drawFrame(){
         falling = false;
         angleSlider.disabled = false;
         speedSlider.disabled = false; 
+        if (app.classList.contains("boss-mode")){
+            if (Math.abs(coord[0] - targetX) <=25 ){
+                hitCount++;
+                pen.font = "40";
+                pen.fillText("HIT!, canvas.width/2, canvas.height/2");
+            } else {
+                pen.font = "40";
+                pen.fillText("MISS, canvas.width/2, canvas.height/2");
+            }
+
+            targetX = Math.random()*451 + 100;
+        }
     } else {
         falling = true;
         angleSlider.disabled = true;
