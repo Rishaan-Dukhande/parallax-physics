@@ -278,6 +278,7 @@ function showHome(){
     app.appendChild(bossButton);
 
     bossButton.addEventListener("click", () => {
+        launchButton.disabled = true;
         app.classList.add("boss-mode");
         let questions = [];
         bossHealth = 10;
