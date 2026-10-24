@@ -294,6 +294,12 @@ function showHome(){
         showBossQuestion(questions[Math.floor(Math.random()*questions.length)]);
     });
 }
+//disables launch Button if the user is in the boss battle
+launchButton.addEventListener("click", () => {
+    if (app.callsList === "boss-mode") {
+        launchButton.disabled = true;
+    }
+});
 
 showHome();
 homeButton.disabled = true;
