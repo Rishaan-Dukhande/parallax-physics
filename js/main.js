@@ -276,10 +276,15 @@ function showHome(){
     app.replaceChildren();
     homeButton.textContent = "Home";
     launchButton.disabled = false;
+    const lessonConstellation = document.createElement("div");
+    lessonConstellation.classList.add("map");
+
     lessons.forEach((lesson) => {
         const lessonButton = document.createElement("button");
-        lessonButton.classList.add("btn-primary");
-        app.appendChild(lessonButton);
+        lessonButton.classList.add("node");
+        lessonConstellation.appendChild(lessonButton);
+
+        let positions = [x,y];
         
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
@@ -322,6 +327,8 @@ function showHome(){
         });
         showBossQuestion(questions[Math.floor(Math.random()*questions.length)]);
     });
+
+    app.appendChild(lessonConstellation);
 }
 //disables launch Button if the user is in the boss battle
 launchButton.addEventListener("click", () => {
