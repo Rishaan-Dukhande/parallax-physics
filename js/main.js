@@ -5,6 +5,11 @@ const nextCard = document.getElementById("nextCard")
 const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const app = document.getElementById("app");
+//for boss battle
+let bossHealth = 10;
+let lives = 3;
+let streak = 0;
+//for lessons + boss
 let cardNum = 0;
 let mistakes = 0;
 let checkAnswered = false;
@@ -116,6 +121,63 @@ function renderCard(card) {
 
 }
 
+// This function renders the questions for the boss battle
+function showBossQuestion(card) {
+    homeButton.disabled = false; //enables home Button when not on home screen
+    //Creating a span
+    const span = document.createElement("span");
+    span.classList.add("card-tag");
+
+    const h2 = document.createElement("h2");
+    h2.classList.add("card-title"); // adds card-title class from css to the heading2 element
+    const p = document.createElement("p");
+    p.classList.add("card-text");
+    span.textContent = card.type;
+    h2.textContent = card.title;
+    p.textContent = card.text;
+    app.replaceChildren();
+    app.appendChild(span);
+    app.appendChild(h2); //header2 comes before the paragraph/card description
+    app.appendChild(p);
+
+    
+    nextCard.disabled = true;
+    const questionText = document.createElement("p");
+    questionText.classList.add("card-text");
+    questionText.textContent = card.question;
+    const choicesDiv = document.createElement("div");
+    choicesDiv.classList.add("choices");
+    const feedbackDiv = document.createElement("div");
+    feedbackDiv.hidden = true;
+    feedbackDiv.classList.add("feedback");
+    card.choices.forEach((choice, i) => {
+        const button = document.createElement("button");
+        button.textContent = choice;
+        button.classList.add("choice");
+
+        //adds an eventlistener to each choice button so it is clickable/interactive
+        button.addEventListener("click", () => {
+            if (i === card.answer) {
+                showAnswered(card, choicesDiv, feedbackDiv);
+
+            } else { 
+                button.classList.add("choice--wrong");
+                feedbackDiv.textContent = "Not quite, try again";
+                feedbackDiv.hidden = false;
+                button.disabled = true;
+                mistakes++; 
+            }
+
+        });
+        choicesDiv.appendChild(button);
+    });
+    app.appendChild(questionText);
+    app.appendChild(choicesDiv);
+    app.appendChild(feedbackDiv);
+
+    if (checkAnswered === true) showAnswered(card, choicesDiv, feedbackDiv);
+}
+
 
 
 homeButton.addEventListener("click", () => {
@@ -173,13 +235,15 @@ function showHome(){
     app.appendChild(bossButton);
 
     bossButton.addEventListener("click", () => {
-        let bossHealth = 10;
-        let lives = 3;
-        lessons.cards.forEach((card) => {
-            if (card.type === "check") {
-                renderCard(card);
-            }
+        let questions = [];
+        lessons.forEach((currLesson) => {
+            lessons[currLesson].cards.forEach((card) => {
+                if (card.type === "check") {
+                    questions.push();
+                }
+            });
         });
+        showBossQuestion(questions[Math.floor(Math.random()*questions.length)]);
     });
 }
 
