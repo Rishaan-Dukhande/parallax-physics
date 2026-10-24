@@ -144,6 +144,7 @@ function showBossQuestion(card) {
 
     const playerData = document.createElement("span");
     playerData.classList.add("card-tag");
+    playerData.textContent = "Lives: " + lives + "  Streak: " + streak + "  Boss Health: " + bossHealth;
 
     const h2 = document.createElement("h2");
     h2.classList.add("card-title"); // adds card-title class from css to the heading2 element
@@ -155,6 +156,7 @@ function showBossQuestion(card) {
     h2.textContent = card.title;
     p.textContent = card.text;
     app.replaceChildren();
+    app.appendChild(playerData);
     app.appendChild(span);
     app.appendChild(h2); //header2 comes before the paragraph/card description
     app.appendChild(p);
@@ -198,7 +200,6 @@ function showBossQuestion(card) {
                 }
             }
             playerData.textContent = "Lives: " + lives + "  Streak: " + streak + "  Boss Health: " + bossHealth;
-            app.appendChild(playerData);
         });
         choicesDiv.appendChild(button);
     });
