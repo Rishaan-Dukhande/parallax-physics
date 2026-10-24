@@ -121,7 +121,7 @@ export function drawScene(){
     //draw ground
     pen.fillRect(0, ground, canvas.width, 2); //paints ground
     //draw ball
-    pen.arc(coord[0], coord[1], radius, 0, 2*Math.PI, true);
+    pen.arc(launchX, launchY, radius, 0, 2*Math.PI, true);
     pen.fill();
 
     if (app.classList.contains("boss-mode")) drawBoss();
