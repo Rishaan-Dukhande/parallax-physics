@@ -285,14 +285,14 @@ function showHome(){
         lessonButton.classList.add("node");
         lessonConstellation.appendChild(lessonButton);
 
-        lessonButton.style.left = position[i].x + "%";
-        lessonButton.style.top = position[i].y + "%";
+        lessonButton.style.left = positions[i].x + "%";
+        lessonButton.style.top = positions[i].y + "%";
         
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
-            lessonButton.textContent = lesson.title + ", Status: Not started yet";
+            lessonButton.textContent = lesson.title.split(" ")[0]; //", Status: Not started yet"
         } else {
-            lessonButton.textContent = lesson.title + ", Status: " + "⭐".repeat(lessonProgress[lesson.id]);
+            lessonButton.textContent = lesson.title.split(" ")[0]; // ", Status: " + "⭐".repeat(lessonProgress[lesson.id]);
         }
 
         lessonButton.addEventListener("click", () => {
@@ -307,10 +307,14 @@ function showHome(){
         });
         lessonConstellation.append(lessonButton);
     });
+
     const bossButton = document.createElement("button");
-    bossButton.textContent = "⚔ Unit 1 Boss";
-    bossButton.classList.add("btn-primary");
-    app.appendChild(bossButton);
+    bossButton.textContent = "⚔Boss";
+    bossButton.classList.add("node");
+    bossButton.style.left = positions[5].x + "%";
+    bossButton.style.top = positions[5].y + "%";
+
+    lessonConstellation.appendChild(bossButton);
 
     bossButton.addEventListener("click", () => {
         launchButton.disabled = true;
