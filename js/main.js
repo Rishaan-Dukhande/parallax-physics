@@ -167,6 +167,10 @@ function showHome(){
             renderCard(currLesson.cards[cardNum]);
         });
     });
+    const bossButton = document.createElement("button");
+    bossButton.textContent = "Unit 1 Boss";
+    bossButton.classList.add("btn-primary");
+    app.appendChild(bossButton);
 }
 
 showHome();

@@ -189,3 +189,13 @@ Key Learnings:
    AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it. In this session, I had AI explain me how the replaceChildren method resets the app screen to an empty screen and catch my misspelling errors.
 
    Next Steps: I will write the lesson content for lessons 1.2 - 1.5 to finish the Kinematics Unit. Then, I will create a boss battle, something to look forward to!
+
+
+Today I created the boss battle at the end of the unit with the following ideas:
+   1. Boss health will be 10 - 10 questions needed to be correct
+   2. The player will have 3 lives. Getting 3 in a row increases lives by 1. 
+   3. A hit counts within 25 px of the boss
+   4. The target is the boss, a icon, that moves around
+   5. A wrong answer costs a life, a missed shot doesn't do anything, it just means you will have to answer 1 more question in order to defeat the boss.
+
+   
