@@ -296,7 +296,7 @@ function showHome(){
 }
 //disables launch Button if the user is in the boss battle
 launchButton.addEventListener("click", () => {
-    if (app.callsList === "boss-mode") {
+    if (launchButton.classList.contains("boss-mode")) {
         launchButton.disabled = true;
     }
 });
