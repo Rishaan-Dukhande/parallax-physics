@@ -190,6 +190,7 @@ Key Learnings:
 
    Next Steps: I will write the lesson content for lessons 1.2 - 1.5 to finish the Kinematics Unit. Then, I will create a boss battle, something to look forward to!
 
+## Oct 23, 2026 - Day 18,
 
 Today I created the boss battle at the end of the unit with the following ideas:
    1. Boss health will be 10 - 10 questions needed to be correct
@@ -197,5 +198,15 @@ Today I created the boss battle at the end of the unit with the following ideas:
    3. A hit counts within 25 px of the boss
    4. The target is the boss, a icon, that moves around
    5. A wrong answer costs a life, a missed shot doesn't do anything, it just means you will have to answer 1 more question in order to defeat the boss.
+   6. If a user gets the wrong answer, they retry the question (for learning purposes)
 
-   
+I created a CSS class for the boss battle called boss-mode. This highlights the app box, which surrounds the boss question, in red.
+
+AI usage: used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it. In this session, I had AI identify and explain errors.
+
+Challenges/Learnings:
+   1. I forgot to use appendChild() to add all elements to the app. This is a reminder to use replaceChildren to empty a screen and appendChild() to add an element to the screen
+   2. If you use two different variables to refer to the same button or element, and add an event listener to the different variables, there are mulitple event listeners happening at once. This means that there should be only one eventListener for every button, and you don't call an eventListener because it is a function that automatically runs when there is a "click" (the chosen input).
+   3. Buttons should be set in a specific state when entering a screen, not at the top of a file where they are constantly enabled or disabled. This will make buttons not function properly.
+
+Next Steps: Tomorrow is the last day. I will finish the boss battle. If I have time, I will add a galaxy dashboard page as a cool home screen and add an AI tutor.
