@@ -279,6 +279,7 @@ function showHome(){
     const lessonConstellation = document.createElement("div");
     lessonConstellation.classList.add("map");
 
+    let foundCurrent = false;
     let positions = [{x: 15, y:60}, {x: 30, y:30}, {x: 45, y:16}, {x: 60, y:19}, {x: 75, y:38}, {x: 90, y:74}];
     lessons.forEach((lesson, i) => {
         const lessonButton = document.createElement("button");
@@ -291,8 +292,18 @@ function showHome(){
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
             lessonButton.textContent = lesson.title.split(" ")[0]; //", Status: Not started yet"
+            if (foundCurrent === false) {
+                lessonButton.classList.add("node--current");
+            } else {
+                lessonButton.classList.add("node--locked");
+                lessonButton.disabled = true;
+            }
+            foundCurrent = true;
+
         } else {
-            lessonButton.textContent = lesson.title.split(" ")[0]; // ", Status: " + "⭐".repeat(lessonProgress[lesson.id]);
+            lessonButton.textContent = lesson.title + ", Status: " + "⭐".repeat(lessonProgress[lesson.id]);
+            lessonButton.classList.add("node--done");
+
         }
 
         lessonButton.addEventListener("click", () => {
