@@ -153,18 +153,14 @@ function showBossQuestion(card) {
     homeButton.disabled = false; //enables home Button when not on home screen
     launchButton.disabled = true;
 
-    bossStats.textContent = "Lives: " + "❤️".repeat(lives) + "  Streak: " + streak + "  Boss Health: " + bossHealth;
+    bossStats.textContent = "\nLives: " + "❤️".repeat(lives) + ",  Streak: " + streak + ",  Boss Health: " + bossHealth;
 
     const p = document.createElement("p");
     p.classList.add("card-text");
     
-    span.textContent = card.type;
-    h2.textContent = card.title;
+    
     p.textContent = card.text;
     app.replaceChildren();
-    app.appendChild(playerData);
-    app.appendChild(span);
-    app.appendChild(h2); //header2 comes before the paragraph/card description
     app.appendChild(p);
 
     const questionText = document.createElement("p");
@@ -205,7 +201,7 @@ function showBossQuestion(card) {
                     displayDefeat();
                 }
             }
-            playerData.textContent = "Lives: " + lives + "  Streak: " + streak + "  Boss Health: " + bossHealth;
+            bossStats.textContent = "\nLives: " + "❤️".repeat(lives) + ",  Streak: " + streak + ",  Boss Health: " + bossHealth;
         });
         choicesDiv.appendChild(button);
     });
