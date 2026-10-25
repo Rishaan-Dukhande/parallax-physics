@@ -8,6 +8,7 @@ const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const launchButton = document.getElementById("launchButton");
 const nextQuestionButton = document.createElement("button");
+const bossStats = document.getElementById("bossStats");
 const simulator = document.getElementById("simulator");
 nextQuestionButton.classList.add("btn-primary");
 nextQuestionButton.textContent = "Next Question";
@@ -151,17 +152,9 @@ function renderCard(card) {
 function showBossQuestion(card) {
     homeButton.disabled = false; //enables home Button when not on home screen
     launchButton.disabled = true;
-    //Creating a span
-    const span = document.createElement("span");
-    span.classList.add("card-tag");
 
-    const playerData = document.createElement("span");
-    playerData.classList.add("card-tag");
-    playerData.textContent = "Lives: " + lives + "  Streak: " + streak + "  Boss Health: " + bossHealth;
+    bossStats.textContent = "Lives: " + "❤️".repeat(lives) + "  Streak: " + streak + "  Boss Health: " + bossHealth;
 
-    const h2 = document.createElement("h2");
-    h2.classList.add("card-title"); // adds card-title class from css to the heading2 element
-    
     const p = document.createElement("p");
     p.classList.add("card-text");
     
@@ -198,8 +191,6 @@ function showBossQuestion(card) {
                     lives++;
                 }
                 launchButton.disabled = false;
-
-                app.appendChild(nextQuestionButton);
 
             } else { 
                 button.classList.add("choice--wrong");
@@ -280,6 +271,7 @@ previousCard.addEventListener("click", () => {
 // ========= Home Screen ==========
 function showHome(){
     app.replaceChildren();
+    bossStats.hidden = true;
     homeButton.textContent = "Home";
     simulator.hidden = true;
     launchButton.disabled = false;
@@ -349,6 +341,7 @@ function showHome(){
         launchButton.disabled = true;
         app.classList.add("boss-mode");
         simulator.hidden = false;
+        bossStats.hidden = false;
         drawScene();
         hitsAtStart = hitCount;
         questions = [];
@@ -371,6 +364,7 @@ function showHome(){
 launchButton.addEventListener("click", () => {
     if (app.classList.contains("boss-mode")) {
         launchButton.disabled = true;
+        app.appendChild(nextQuestionButton);
     }
 });
 

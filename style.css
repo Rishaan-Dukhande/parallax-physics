@@ -391,3 +391,8 @@ button:disabled {
   font-size: 0.8rem;
   margin-top: 4px;
 }
+
+#bossStats{
+  font-size: 1.3rem;
+  color: red;
+}
