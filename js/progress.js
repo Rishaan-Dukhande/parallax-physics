@@ -1,12 +1,17 @@
 //This is where all lesson progress and user statistics will be stored
 
-
 //returns saved progress
 export function loadProgress(){
     if (localStorage.getItem("parallax-progress") === null){
         return {};
     } else {
-        return JSON.parse(localStorage.getItem("parallax-progress"));
+        try{
+            return JSON.parse(localStorage.getItem("parallax-progress"));
+        } catch(error) {
+            localStorage.removeItem("parallax-progress") //removes broken JSON item
+            return {};
+        }
+        
     }
 }
 
