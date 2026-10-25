@@ -8,6 +8,7 @@ const previousCard = document.getElementById("previousCard")
 const heading1 = document.getElementById("title")
 const launchButton = document.getElementById("launchButton");
 const nextQuestionButton = document.createElement("button");
+const simulator = document.getElementById("simulator");
 nextQuestionButton.classList.add("btn-primary");
 nextQuestionButton.textContent = "Next Question";
 const app = document.getElementById("app");
@@ -86,6 +87,11 @@ function renderCard(card) {
     nextCard.disabled = (cardNum === currLesson.cards.length - 1);
     previousCard.disabled = (cardNum <= 0);
 
+    if (card.simulator === true){
+        simulator.hidden = false;
+    } else {
+        simulator.hidden = true;
+    }
     if (card.type === "check"){
         nextCard.disabled = true;
         const questionText = document.createElement("p");
@@ -275,6 +281,7 @@ previousCard.addEventListener("click", () => {
 function showHome(){
     app.replaceChildren();
     homeButton.textContent = "Home";
+    simulator.hidden = true;
     launchButton.disabled = false;
     const lessonConstellation = document.createElement("div");
     lessonConstellation.classList.add("map");
@@ -337,6 +344,7 @@ function showHome(){
     bossButton.addEventListener("click", () => {
         launchButton.disabled = true;
         app.classList.add("boss-mode");
+        simulator.hidden = false;
         drawScene();
         hitsAtStart = hitCount;
         questions = [];
