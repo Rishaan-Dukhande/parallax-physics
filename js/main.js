@@ -48,7 +48,7 @@ function showAnswered(card, choicesDiv, feedbackDiv){
     feedbackDiv.hidden = false;
     feedbackDiv.textContent = card.explanation;
     nextCard.disabled = false;
-    answeredCards.push(card);
+    answeredCards.push(cardNum);
 }
 
 //This shows the feedback and enables the next Card when the user clicks the correct answer
