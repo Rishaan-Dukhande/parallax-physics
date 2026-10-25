@@ -233,3 +233,21 @@ Next Steps: Tomorrow is the last day. I will finish the boss battle. If I have t
       4. To check if an element has a class, you can use classList.contains(); (Using === does not work).
       5. I had orginially made the question list a local variable in showBossQuestion(). This was a problem because every single time the user presses the nextQuestionButton, a new question should be displayed. To fix this, I made the questions list a global variable
 
+   ### Segment 3 - Galaxy
+   During the rest of the afternoon and early evening, I changed the list of lesson buttons into a parabola-shaped "galaxy"! This follow the shape of projectile motion. Each lesson button has a node state, which gives it a different color depending on whether a lesson is completed, next, or locked. The boss unlocks when all 5 lessons have stars.
+
+   Tooltips - A cool feature I added were tooltips to the buttons, which show the full lesson titles when the user hovers on top of that lesson button.
+
+   ### Segment 4 - Refinement + IPhone Compatibility
+
+      1. I decided that I want the lesson stars to show on the home galaxy, so I added them right below the lesson that they represent. 
+
+      2. I moved the simulation to only lesson 1.5 because the simulation is an example of projectile motion. A user learns this in lesson 1.5, and it doesn't belong on the home screen.
+
+      3. I added hearts to the boss to show the user's lives and experimented with disabling and hidden attributes to make sure the next question button only appears after the user fires at the boss. This eliminates the possiblity of not attacking the boss and moving to the next question.
+
+      4. I changed the layout of all the components of the app. This required some new knowledge on CSS.
+
+      5. I learned about try/catch blocks to handle code that might fail and prevent the app from crashing. I used this in the loadProgress() function.
+
+   AI usage: I used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it. In this session, I had AI identify and explain errors. AI was used to help with CSS, which I commented in the style.css file. AI was a great conversation partner for helping me refine my thoughts and how to execute them. For example, I did not know how to make the layout of the home-galaxy in a parabola shape.

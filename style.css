@@ -409,6 +409,7 @@ button:disabled {
   justify-content: center;  /* center the row */
   gap: 12px;                /* equal space between buttons */
   align-items: center;
+  flex-wrap: wrap; /* continues on next line if row doesn't fit*/
 }
 
 /* This was coded by AI, however, I did a careful review on the concept to better-understand making 
