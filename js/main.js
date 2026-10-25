@@ -283,19 +283,24 @@ function showHome(){
     lines.classList.add("constellation-lines");
     lessonConstellation.appendChild(lines);
 
-    for (let i = 0; i < positions.length - 2; i++) {
-        document.createElementNS(ns, "line");
-        setAttribute("x1", positions[i].x + "%");
-        setAttribute("y1", positions[i].y + "%");
-        setAttribute("x2", positions[i+1].x + "%");
-        setAttribute("y2", positions[i+1].y + "%");
-        setAttribute("stroke", "rgba(0,243,255,0.4");
-        setAttribute("stroke-width", "2");
-        lines.appendChild(line);
+    for (let i = 0; i <= positions.length - 2; i++) {
 
+        const line = document.createElementNS(ns, "line");
+        line.setAttribute("x1", positions[i].x + "%");
+        line.setAttribute("y1", positions[i].y + "%");
+        line.setAttribute("x2", positions[i+1].x + "%");
+        line.setAttribute("y2", positions[i+1].y + "%");
+        
+        if(loadProgress()[lesson[i.id] === undefined]){
+            line.setAttribute("stroke-dasharray", "4 6");
+        } else {
+            line.setAttribute("stroke", "rgba(0,243,255,0.4)");
+            line.setAttribute("stroke-width", "2");
+        }
+
+        lines.appendChild(line);
     }
 
-    app.appendChild(lines);
     const bossButton = document.createElement("button");
     bossButton.classList.add("node");
     bossButton.classList.add("node-boss");
