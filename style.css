@@ -380,3 +380,11 @@ button:disabled {
     inset 0 0 8px var(--color-red-glow);
   font-size: 3rem;
 }
+
+/* With AI help */
+.node-stars{
+  position: absolute;
+  top: 100%;
+  white-space: nowrap;
+  font-size: margin-top;
+}

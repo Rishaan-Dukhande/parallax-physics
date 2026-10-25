@@ -309,7 +309,7 @@ function showHome(){
         
         let lessonProgress = loadProgress();
         if (lessonProgress[lesson.id] === undefined){
-            lessonButton.textContent = lesson.title.split(" ")[0]; //", Status: Not started yet"
+            lessonButton.textContent = lesson.title.split(" ")[0];
             if (foundCurrent === false) {
                 lessonButton.classList.add("node--current");
             } else {
@@ -319,8 +319,12 @@ function showHome(){
             foundCurrent = true;
 
         } else {
-            lessonButton.textContent = lesson.title.split(" ")[0]; // ", Status: " + "⭐".repeat(lessonProgress[lesson.id]);
+            lessonButton.textContent = lesson.title.split(" ")[0];
             lessonButton.classList.add("node--done");
+            const lessonStars = document.createElement("span");
+            lessonStars.classList.add("node-stars");
+            lessonStars.textContent = "⭐".repeat(lessonProgress[lesson.id]);
+            lessonConstellation.appendChild(lessonStars);
 
         }
 
@@ -334,7 +338,7 @@ function showHome(){
             heading1.textContent = currLesson.title;
             renderCard(currLesson.cards[cardNum]);
         });
-        lessonConstellation.append(lessonButton);
+        lessonConstellation.appendChild(lessonButton);
 
     });
 
