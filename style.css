@@ -385,6 +385,9 @@ button:disabled {
 .node-stars{
   position: absolute;
   top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   white-space: nowrap;
-  font-size: margin-top;
+  font-size: 0.8rem;
+  margin-top: 4px;
 }

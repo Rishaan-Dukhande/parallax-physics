@@ -324,7 +324,7 @@ function showHome(){
             const lessonStars = document.createElement("span");
             lessonStars.classList.add("node-stars");
             lessonStars.textContent = "⭐".repeat(lessonProgress[lesson.id]);
-            lessonConstellation.appendChild(lessonStars);
+            lessonButton.appendChild(lessonStars);
 
         }
 
@@ -338,7 +338,7 @@ function showHome(){
             heading1.textContent = currLesson.title;
             renderCard(currLesson.cards[cardNum]);
         });
-        lessonConstellation.appendChild(lessonButton);
+        lessonConstellation.append(lessonButton);
 
     });
 
