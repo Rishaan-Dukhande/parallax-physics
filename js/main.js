@@ -272,11 +272,30 @@ function showHome(){
     homeButton.textContent = "Home";
     simulator.hidden = true;
     launchButton.disabled = false;
-    const lessonConstellation = document.createElement("div");
-    lessonConstellation.classList.add("map");
+
     let foundCurrent = false;
     let positions = [{x: 15, y:60}, {x: 30, y:30}, {x: 45, y:16}, {x: 60, y:19}, {x: 75, y:38}, {x: 90, y:74}];
 
+    const lessonConstellation = document.createElement("div");
+    lessonConstellation.classList.add("map");
+    const ns = "http://www.w3.org/2000/svg";
+    const lines = document.createElementNS(ns, "svg");
+    lines.classList.add("constellation-lines");
+    lessonConstellation.appendChild(lines);
+
+    for (let i = 0; i < positions.length - 2; i++) {
+        document.createElementNS(ns, "line");
+        setAttribute("x1", positions[i].x + "%");
+        setAttribute("y1", positions[i].y + "%");
+        setAttribute("x2", positions[i+1].x + "%");
+        setAttribute("y2", positions[i+1].y + "%");
+        setAttribute("stroke", "rgba(0,243,255,0.4");
+        setAttribute("stroke-width", "2");
+        lines.appendChild(line);
+
+    }
+
+    app.appendChild(lines);
     const bossButton = document.createElement("button");
     bossButton.classList.add("node");
     bossButton.classList.add("node-boss");
