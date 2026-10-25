@@ -334,6 +334,7 @@ function showHome(){
 
 
     bossButton.addEventListener("click", () => {
+        if (falling) return; //prevents starting the boss after launching a projectile in lesson 1.5
         launchButton.disabled = true;
         app.classList.add("boss-mode");
         simulator.hidden = false;

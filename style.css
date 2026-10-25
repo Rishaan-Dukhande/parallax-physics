@@ -113,6 +113,9 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 100%; /*canvas won't be bigger than device screen*/
+  height: auto;
+  box-sizing: border-box;
 }
 
 .card-tag {
@@ -401,8 +404,17 @@ button:disabled {
   text-align: center;
 }
 
-.navButtons{
+.nav-inputs{
   display: flex;
   justify-content: center;  /* center the row */
   gap: 12px;                /* equal space between buttons */
+  align-items: center;
+}
+
+/* This was coded by AI, however, I did a careful review on the concept to better-understand making 
+any program compatible on different screen devices, such as mobile (iOS) phones.
+This will help in any future apps/websites I create!
+*/
+@media (max-width: 500px) {
+  .node { width: 48px; height: 48px; }
 }
