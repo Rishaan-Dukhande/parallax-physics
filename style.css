@@ -111,6 +111,8 @@ body {
 /* This method was created by me */
 #myCanvas {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-tag {
@@ -395,4 +397,12 @@ button:disabled {
 #bossStats{
   font-size: 1.3rem;
   color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.navButtons{
+  display: flex;
+  justify-content: center;  /* center the row */
+  gap: 12px;                /* equal space between buttons */
 }
