@@ -386,6 +386,15 @@ button:disabled {
   font-size: 3rem;
 }
 
+.node-bossWin{
+  background: rgba(88, 239, 68, 0.1);
+  border: 2px solid var(--color-green);
+  box-shadow:
+    0 0 16px var(--color-green-glow),
+    inset 0 0 8px var(--color-green-glow);
+  font-size: 3rem;
+}
+
 /* With AI help */
 .node-stars{
   position: absolute;

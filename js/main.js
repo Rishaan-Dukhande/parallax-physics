@@ -232,6 +232,7 @@ function displayVictory(){
     const victoryExplanation = document.createElement("span");
     victoryExplanation.textContent = "Congratulations! You have defeated the Unit 1 Boss with " + lives + " lives left. You have shown your excellence with kinematics!";
 
+    saveStars("boss1", lives)
     app.appendChild(victoryTitle);
     app.appendChild(victoryExplanation);
     const returnHome = document.getElementById("homeButton");
@@ -316,6 +317,12 @@ function showHome(){
 
         }
 
+        if (loadProgress()["boss1"] === undefined){
+            return;
+        } else {
+            lessonstars.classList.add("node-bossWin");
+            lessonStars.textContent = "🏆".repeat(lives);
+        }
         lessonButton.addEventListener("click", () => {
             currLesson = lesson;
             cardNum = 0;
