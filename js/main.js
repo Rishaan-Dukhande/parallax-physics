@@ -21,7 +21,7 @@ let streak = 0;
 //for lessons + boss
 let cardNum = 0;
 let mistakes = 0;
-let checkAnswered = false;
+let answeredCards = [];
 let currLesson = lessons[1]; //Number can be changed anytime (does not have to be 0)
 launchButton.disabled = true;
 homeButton.disabled = false;
@@ -48,7 +48,7 @@ function showAnswered(card, choicesDiv, feedbackDiv){
     feedbackDiv.hidden = false;
     feedbackDiv.textContent = card.explanation;
     nextCard.disabled = false;
-    checkAnswered = true;
+    answeredCards.add(card);
 }
 
 //This shows the feedback and enables the next Card when the user clicks the correct answer
@@ -121,7 +121,7 @@ function renderCard(card) {
         app.appendChild(choicesDiv);
         app.appendChild(feedbackDiv);
 
-        if (checkAnswered === true) showAnswered(card, choicesDiv, feedbackDiv);
+        if (checkAnswered.contains(card)) showAnswered(card, choicesDiv, feedbackDiv);
     }
 
     //displays stars in summary
@@ -321,7 +321,6 @@ function showHome(){
             currLesson = lesson;
             cardNum = 0;
             mistakes = 0;
-            checkAnswered = false;
 
             //same as previous start button
             heading1.textContent = currLesson.title;
