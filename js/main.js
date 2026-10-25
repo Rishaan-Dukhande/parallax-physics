@@ -48,7 +48,7 @@ function showAnswered(card, choicesDiv, feedbackDiv){
     feedbackDiv.hidden = false;
     feedbackDiv.textContent = card.explanation;
     nextCard.disabled = false;
-    answeredCards.add(card);
+    answeredCards.push(card);
 }
 
 //This shows the feedback and enables the next Card when the user clicks the correct answer
@@ -121,7 +121,7 @@ function renderCard(card) {
         app.appendChild(choicesDiv);
         app.appendChild(feedbackDiv);
 
-        if (checkAnswered.contains(card)) showAnswered(card, choicesDiv, feedbackDiv);
+        if (answeredCards.includes(cardNum)) showAnswered(card, choicesDiv, feedbackDiv);
     }
 
     //displays stars in summary
@@ -321,6 +321,7 @@ function showHome(){
             currLesson = lesson;
             cardNum = 0;
             mistakes = 0;
+            answeredCards = [];
 
             //same as previous start button
             heading1.textContent = currLesson.title;
