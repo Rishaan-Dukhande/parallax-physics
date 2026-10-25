@@ -359,13 +359,6 @@ button:disabled {
   border-width: thick;
 }
 
-.node-boss{
-  border: 2px solid var(--color-red);
-  box-shadow:
-    0 0 16px var(--color-red-glow),
-    inset 0 0 8px var(--color-red-glow);
-}
-
 /* Written by me for bigger galaxy nodes */
 .node {
   width: 70px;
@@ -377,4 +370,13 @@ button:disabled {
   width: 78px;
   height: 78px;
   font-size: 1rem;
+}
+
+.node-boss{
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid var(--color-red);
+  box-shadow:
+    0 0 16px var(--color-red-glow),
+    inset 0 0 8px var(--color-red-glow);
+  font-size: 3rem;
 }

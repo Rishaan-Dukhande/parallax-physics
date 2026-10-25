@@ -282,9 +282,9 @@ function showHome(){
     let positions = [{x: 15, y:60}, {x: 30, y:30}, {x: 45, y:16}, {x: 60, y:19}, {x: 75, y:38}, {x: 90, y:74}];
 
     const bossButton = document.createElement("button");
-    bossButton.textContent = "👾";
     bossButton.classList.add("node");
     bossButton.classList.add("node-boss");
+    bossButton.textContent = "👾";
     bossButton.disabled = true;
     bossButton.style.left = positions[5].x + "%";
     bossButton.style.top = positions[5].y + "%";
