@@ -360,8 +360,10 @@ button:disabled {
 }
 
 .node-boss{
-  border-color: red;
-  border-width: thick;
+  border: 2px solid var(--color-red);
+  box-shadow:
+    0 0 16px var(--color-red-glow),
+    inset 0 0 8px var(--color-red-glow);
 }
 
 /* Written by me for bigger galaxy nodes */

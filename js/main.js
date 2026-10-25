@@ -284,7 +284,7 @@ function showHome(){
     const bossButton = document.createElement("button");
     bossButton.textContent = "👾";
     bossButton.classList.add("node");
-    bossButton.classList.add("node--boss");
+    bossButton.classList.add("node-boss");
     bossButton.disabled = true;
     bossButton.style.left = positions[5].x + "%";
     bossButton.style.top = positions[5].y + "%";
