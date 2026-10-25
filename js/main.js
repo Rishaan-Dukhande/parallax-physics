@@ -317,12 +317,7 @@ function showHome(){
 
         }
 
-        if (loadProgress()["boss1"] === undefined){
-            return;
-        } else {
-            lessonstars.classList.add("node-bossWin");
-            lessonStars.textContent = "🏆".repeat(lives);
-        }
+    
         lessonButton.addEventListener("click", () => {
             currLesson = lesson;
             cardNum = 0;
@@ -336,6 +331,13 @@ function showHome(){
         lessonConstellation.append(lessonButton);
 
     });
+
+    if (!loadProgress()["boss1"] === undefined){
+        const bossTrophies = document.createElement("span"); 
+        bossTrophies.classList.add("node-bossWin");
+        bossTrophies.textContent = "🏆".repeat(lives);
+        bossButton.appendChild(bossTrophies);
+    }
 
     if (foundCurrent === false) bossButton.disabled = false;
 
