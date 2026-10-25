@@ -291,8 +291,10 @@ function showHome(){
         line.setAttribute("x2", positions[i+1].x + "%");
         line.setAttribute("y2", positions[i+1].y + "%");
         
-        if(loadProgress()[lesson[i.id] === undefined]){
+        if(loadProgress()[lessons[i].id] === undefined){
             line.setAttribute("stroke-dasharray", "4 6");
+            line.setAttribute("stroke", "rgba(255,255,255.0.15)");
+            line.setAttribute("stroke-width", "2");
         } else {
             line.setAttribute("stroke", "rgba(0,243,255,0.4)");
             line.setAttribute("stroke-width", "2");
