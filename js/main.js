@@ -1,6 +1,6 @@
 import {lessons} from "./lessons.js"
 import {saveStars, loadProgress} from "./progress.js"
-import {drawScene, hitCount} from "./simulator.js"
+import {drawScene, hitCount, falling} from "./simulator.js"
 
 const homeButton = document.getElementById("homeButton")
 const nextCard = document.getElementById("nextCard")
@@ -371,12 +371,14 @@ launchButton.addEventListener("click", () => {
 });
 
 nextQuestionButton.addEventListener("click", () => {
-    bossHealth = 10 - (hitCount - hitsAtStart);
-    if (bossHealth <= 0) {
-        displayVictory();
-    } else {
-        drawScene();
-        showBossQuestion(questions[Math.floor(Math.random()*questions.length)]);
+    if (!falling) {
+        bossHealth = 10 - (hitCount - hitsAtStart);
+        if (bossHealth <= 0) {
+            displayVictory();
+        } else {
+            drawScene();
+            showBossQuestion(questions[Math.floor(Math.random()*questions.length)]);
+        }
     }
 });
 

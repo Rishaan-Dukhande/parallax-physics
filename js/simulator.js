@@ -24,7 +24,7 @@ export let hitCount = 0;
 let t = 0; //time
 let speed = 20;
 let angle = 45; //in degrees
-let falling = false;
+export let falling = false;
 
 //inital pen place
 pen.beginPath() //used for creating a new, unconnected path
