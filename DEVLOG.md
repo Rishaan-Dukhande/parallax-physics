@@ -251,3 +251,12 @@ Next Steps: Tomorrow is the last day. I will finish the boss battle. If I have t
       5. I learned about try/catch blocks to handle code that might fail and prevent the app from crashing. I used this in the loadProgress() function.
 
    AI usage: I used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it. In this session, I had AI identify and explain errors. AI was used to help with CSS, which I commented in the style.css file. AI was a great conversation partner for helping me refine my thoughts and how to execute them. For example, I did not know how to make the layout of the home-galaxy in a parabola shape.
+
+## Oct 25, 2026 - Day 20,
+
+   Today, I focused on some finishing touches. I added SVG lines to connect all the lesson nodes in the home galaxy. A completed lesson draws a solid syan line towards the next lesson. Incompete lessons have a faded dashed line connection between them. The lines connect in a parabolic shape.
+   
+   Key Learnings:
+      1. To draw lines using SVG, you need to use the createElementNS(ns, "object(usually line)") function. Then, you can set attributes for the (x1, y1) and (x2,y2) coordinates to draw a line.
+
+   AI usage: I used AI to help me understand concepts when I got stuck for over 5 minutes on a topic and test my code. I used AI to teach me the concept, then I coded everything by myself and asked for feedback on the code to improve it. In this session, I had AI help with some CSS and explaining the createElementNS concept.
