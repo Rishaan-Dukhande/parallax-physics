@@ -332,10 +332,11 @@ function showHome(){
 
     });
 
-    if (!loadProgress()["boss1"] === undefined){
+    if (loadProgress()["boss1"] !== undefined){
         const bossTrophies = document.createElement("span"); 
-        bossTrophies.classList.add("node-bossWin");
-        bossTrophies.textContent = "🏆".repeat(lives);
+        bossTrophies.classList.add("node-stars");
+        bossButton.classList.add("node-bossWin");
+        bossTrophies.textContent = "🏆".repeat(loadProgress()["boss1"]);
         bossButton.appendChild(bossTrophies);
     }
 
