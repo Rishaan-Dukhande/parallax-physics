@@ -254,7 +254,7 @@ Next Steps: Tomorrow is the last day. I will finish the boss battle. If I have t
 
 ## Oct 25, 2026 - Day 20,
 
-   Today, I focused on some finishing touches. I added SVG lines to connect all the lesson nodes in the home galaxy. A completed lesson draws a solid syan line towards the next lesson. Incompete lessons have a faded dashed line connection between them. The lines connect in a parabolic shape.
+   Today, I focused on some finishing touches. I added SVG lines to connect all the lesson nodes in the home galaxy. A completed lesson draws a solid cyan line towards the next lesson. Incomplete lessons have a faded dashed line connection between them. The lines connect in a parabolic shape.
    
    Key Learnings:
       1. To draw lines using SVG, you need to use the createElementNS(ns, "object(usually line)") function. Then, you can set attributes for the (x1, y1) and (x2,y2) coordinates to draw a line.
